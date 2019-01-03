@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:MyMoji.xcodeproj">
+      location = "self:../MyMoji/Supports">
    </FileRef>
 </Workspace>

@@ -101,15 +101,9 @@
 		83A5F87B21DE15A400344B91 /* MyMoji */ = {
 			isa = PBXGroup;
 			children = (
-				83A5F87C21DE15A400344B91 /* AppDelegate.h */,
-				83A5F87D21DE15A400344B91 /* AppDelegate.m */,
-				83A5F87F21DE15A400344B91 /* ViewController.h */,
-				83A5F88021DE15A400344B91 /* ViewController.m */,
-				83A5F88221DE15A400344B91 /* Main.storyboard */,
-				83A5F88521DE15A500344B91 /* Assets.xcassets */,
-				83A5F88721DE15A500344B91 /* LaunchScreen.storyboard */,
-				83A5F88A21DE15A500344B91 /* Info.plist */,
-				83A5F88B21DE15A500344B91 /* main.m */,
+				83A5F8AE21DE356F00344B91 /* Classes */,
+				83A5F8AF21DE358800344B91 /* Resources */,
+				83A5F8B021DE35AE00344B91 /* Supports */,
 			);
 			path = MyMoji;
 			sourceTree = "<group>";
@@ -130,6 +124,36 @@
 				83A5F8A221DE15A500344B91 /* Info.plist */,
 			);
 			path = MyMojiUITests;
+			sourceTree = "<group>";
+		};
+		83A5F8AE21DE356F00344B91 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				83A5F87C21DE15A400344B91 /* AppDelegate.h */,
+				83A5F87D21DE15A400344B91 /* AppDelegate.m */,
+				83A5F87F21DE15A400344B91 /* ViewController.h */,
+				83A5F88021DE15A400344B91 /* ViewController.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		83A5F8AF21DE358800344B91 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				83A5F88221DE15A400344B91 /* Main.storyboard */,
+				83A5F88521DE15A500344B91 /* Assets.xcassets */,
+				83A5F88721DE15A500344B91 /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		83A5F8B021DE35AE00344B91 /* Supports */ = {
+			isa = PBXGroup;
+			children = (
+				83A5F88A21DE15A500344B91 /* Info.plist */,
+				83A5F88B21DE15A500344B91 /* main.m */,
+			);
+			path = Supports;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -437,12 +461,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7V5X2W9W5Y;
-				INFOPLIST_FILE = MyMoji/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/MyMoji/Supports/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.bettelife.MyMoji;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bestlife.MyMoji;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -454,12 +478,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7V5X2W9W5Y;
-				INFOPLIST_FILE = MyMoji/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/MyMoji/Supports/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.bettelife.MyMoji;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bestlife.MyMoji;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

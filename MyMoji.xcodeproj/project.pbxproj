@@ -15,6 +15,11 @@
 		83A5F88C21DE15A500344B91 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A5F88B21DE15A500344B91 /* main.m */; };
 		83A5F89621DE15A500344B91 /* MyMojiTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A5F89521DE15A500344B91 /* MyMojiTests.m */; };
 		83A5F8A121DE15A500344B91 /* MyMojiUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A5F8A021DE15A500344B91 /* MyMojiUITests.m */; };
+		83A5F8B221DEEBBE00344B91 /* TestKaomejiList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 83A5F8B121DEEBBE00344B91 /* TestKaomejiList.plist */; };
+		83A5F8B721DEFCAB00344B91 /* MMKaomojiListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A5F8B621DEFCAB00344B91 /* MMKaomojiListController.m */; };
+		83A5F8BA21DEFD3500344B91 /* MMTextListFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A5F8B921DEFD3500344B91 /* MMTextListFlowLayout.m */; };
+		83A5F8E621DF487600344B91 /* MMTextListCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A5F8E521DF487600344B91 /* MMTextListCollectionView.m */; };
+		83A5F8E921DF540500344B91 /* MMTextCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A5F8E821DF540500344B91 /* MMTextCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +56,15 @@
 		83A5F89C21DE15A500344B91 /* MyMojiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyMojiUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		83A5F8A021DE15A500344B91 /* MyMojiUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyMojiUITests.m; sourceTree = "<group>"; };
 		83A5F8A221DE15A500344B91 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		83A5F8B121DEEBBE00344B91 /* TestKaomejiList.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = TestKaomejiList.plist; sourceTree = "<group>"; };
+		83A5F8B521DEFCAB00344B91 /* MMKaomojiListController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMKaomojiListController.h; sourceTree = "<group>"; };
+		83A5F8B621DEFCAB00344B91 /* MMKaomojiListController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMKaomojiListController.m; sourceTree = "<group>"; };
+		83A5F8B821DEFD3500344B91 /* MMTextListFlowLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMTextListFlowLayout.h; sourceTree = "<group>"; };
+		83A5F8B921DEFD3500344B91 /* MMTextListFlowLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMTextListFlowLayout.m; sourceTree = "<group>"; };
+		83A5F8E421DF487600344B91 /* MMTextListCollectionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMTextListCollectionView.h; sourceTree = "<group>"; };
+		83A5F8E521DF487600344B91 /* MMTextListCollectionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMTextListCollectionView.m; sourceTree = "<group>"; };
+		83A5F8E721DF540500344B91 /* MMTextCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMTextCell.h; sourceTree = "<group>"; };
+		83A5F8E821DF540500344B91 /* MMTextCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMTextCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +143,8 @@
 		83A5F8AE21DE356F00344B91 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				83A5F8B421DEFB6A00344B91 /* View&Controller */,
+				83A5F8B321DEFA9A00344B91 /* Model */,
 				83A5F87C21DE15A400344B91 /* AppDelegate.h */,
 				83A5F87D21DE15A400344B91 /* AppDelegate.m */,
 				83A5F87F21DE15A400344B91 /* ViewController.h */,
@@ -143,6 +159,7 @@
 				83A5F88221DE15A400344B91 /* Main.storyboard */,
 				83A5F88521DE15A500344B91 /* Assets.xcassets */,
 				83A5F88721DE15A500344B91 /* LaunchScreen.storyboard */,
+				83A5F8B121DEEBBE00344B91 /* TestKaomejiList.plist */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -154,6 +171,28 @@
 				83A5F88B21DE15A500344B91 /* main.m */,
 			);
 			path = Supports;
+			sourceTree = "<group>";
+		};
+		83A5F8B321DEFA9A00344B91 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		83A5F8B421DEFB6A00344B91 /* View&Controller */ = {
+			isa = PBXGroup;
+			children = (
+				83A5F8B521DEFCAB00344B91 /* MMKaomojiListController.h */,
+				83A5F8B621DEFCAB00344B91 /* MMKaomojiListController.m */,
+				83A5F8E421DF487600344B91 /* MMTextListCollectionView.h */,
+				83A5F8E521DF487600344B91 /* MMTextListCollectionView.m */,
+				83A5F8B821DEFD3500344B91 /* MMTextListFlowLayout.h */,
+				83A5F8B921DEFD3500344B91 /* MMTextListFlowLayout.m */,
+				83A5F8E721DF540500344B91 /* MMTextCell.h */,
+				83A5F8E821DF540500344B91 /* MMTextCell.m */,
+			);
+			path = "View&Controller";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,6 +301,7 @@
 				83A5F88921DE15A500344B91 /* LaunchScreen.storyboard in Resources */,
 				83A5F88621DE15A500344B91 /* Assets.xcassets in Resources */,
 				83A5F88421DE15A400344B91 /* Main.storyboard in Resources */,
+				83A5F8B221DEEBBE00344B91 /* TestKaomejiList.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,9 +326,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				83A5F8B721DEFCAB00344B91 /* MMKaomojiListController.m in Sources */,
+				83A5F8BA21DEFD3500344B91 /* MMTextListFlowLayout.m in Sources */,
 				83A5F88121DE15A400344B91 /* ViewController.m in Sources */,
+				83A5F8E921DF540500344B91 /* MMTextCell.m in Sources */,
 				83A5F88C21DE15A500344B91 /* main.m in Sources */,
 				83A5F87E21DE15A400344B91 /* AppDelegate.m in Sources */,
+				83A5F8E621DF487600344B91 /* MMTextListCollectionView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

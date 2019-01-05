@@ -7,45 +7,34 @@
 //
 
 #import "MMKaomojiListController.h"
+#import "MMTextListCollectionView.h"
 
-@interface MMKaomojiListController（）<UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
-{
-    UICollectionView    *_collectionView;   //流布局视图
-    NSMutableArray      *_dataArr;          //流布局数据源
-}
+@interface MMKaomojiListController()
+
 
 @end
 
 @implementation MMKaomojiListController
-
-- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        
-    }
-    return self;
-}
-
-- (instancetype)initWithCoder:(NSCoder *)aDecoder{
-    self = [super initWithCoder:aDecoder];
-    if (self) {
-        
-    }
-    return self;
-}
-
 
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    
+    [self loadDataAndView];
 
-    
 }
 
-
+- (void)loadDataAndView{
+    // 加载数据
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"TestKaomejiList" ofType:@"plist"];
+    NSArray *array = [NSArray arrayWithContentsOfFile:path];
+    
+    //加载视图
+    MMTextListCollectionView *collectionView = [[MMTextListCollectionView alloc] initWithFrame:self.view.bounds items:array];
+    collectionView.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:collectionView];
+}
 
 
 /*

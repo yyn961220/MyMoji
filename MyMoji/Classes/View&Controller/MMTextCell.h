@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface MMTextCell : UICollectionViewCell
-@property (strong, nonatomic) UILabel * textLabel;  //cell中的文
+@property (readonly, nonatomic) UILabel * textLabel;  //cell中的文
 @end
 
 NS_ASSUME_NONNULL_END

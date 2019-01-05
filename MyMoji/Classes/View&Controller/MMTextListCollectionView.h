@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface MMTextListCollectionView : UICollectionView
-@property (nonatomic,strong) NSArray *items;
+@property (nonatomic,strong) NSArray *dataItems;
 - (instancetype)initWithFrame:(CGRect)frame items:(NSArray *)items ;
 @end
 

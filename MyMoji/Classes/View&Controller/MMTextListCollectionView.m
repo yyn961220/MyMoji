@@ -148,6 +148,11 @@
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     /* 响应回调block */
 //    _itemClick(indexPath.row);
+    
+    if (self.cellSelectHander) {
+        NSString *str                       = self.dataItems[indexPath.section][indexPath.row];
+        self.cellSelectHander(str, indexPath);
+    }
 }
 
 

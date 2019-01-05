@@ -18,7 +18,12 @@
  */
 
 -(NSArray *)layoutAttributesForElementsInRect:(CGRect)rect{
-    NSArray *attributes = [[super layoutAttributesForElementsInRect:rect] mutableCopy];
+    
+    NSArray *original = [super layoutAttributesForElementsInRect:rect];
+    NSArray *attributes =  [[NSArray alloc]initWithArray:original copyItems:YES];
+
+
+//    NSArray *attributes = [[super layoutAttributesForElementsInRect:rect] copy];
     for(int i = 0; i < [attributes count]; i++) {
         
         if (i==0) {

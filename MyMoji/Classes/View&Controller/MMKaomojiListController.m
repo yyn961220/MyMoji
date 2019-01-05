@@ -33,6 +33,10 @@
     //加载视图
     MMTextListCollectionView *collectionView = [[MMTextListCollectionView alloc] initWithFrame:self.view.bounds items:array];
     collectionView.backgroundColor = [UIColor whiteColor];
+    collectionView.cellSelectHander = ^(id  _Nonnull selectItem, NSIndexPath * _Nonnull selectIndexPath) {
+        NSLog(@"selectItem:%@,indexpath:%@",selectItem,selectIndexPath);
+    };
+    
     [self.view addSubview:collectionView];
 }
 

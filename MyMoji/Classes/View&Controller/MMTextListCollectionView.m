@@ -16,8 +16,13 @@
 @end
 
 @implementation MMTextListCollectionView
+@synthesize dataItems = _dataItems;
 
 #define kMMTextCellIdentifier @"MMTextCell"
+- (instancetype)initWithFrame:(CGRect)frame{
+    
+    return [self initWithFrame:frame items:@[]];
+}
 
 - (instancetype)initWithFrame:(CGRect)frame items:(NSArray *)items{
     MMTextListFlowLayout *flow = [[MMTextListFlowLayout alloc] init];
@@ -29,15 +34,22 @@
     if (self) {
         self.dataSource = self;
         self.delegate = self;
-        self.dataItems  = [NSMutableArray arrayWithArray:items];
+        self.dataItems  = [items copy];
         
         [self registerClass:[MMTextCell class] forCellWithReuseIdentifier:kMMTextCellIdentifier];
+    
         
     }
     
     return self;
 }
 
+- (void)setDataItems:(NSArray *)dataItems{
+    _dataItems = dataItems;
+    if (dataItems.count > 0) {
+        [self reloadData];
+    }
+}
 #pragma mark -------------> UICollectionView协议方法
 /**
  *  自定义流布局item个数 要比数据源的个数多1 需要一个作为清除历史记录的行

@@ -17,6 +17,7 @@
  *  @return item属性数组
  */
 
+/*
 -(NSArray *)layoutAttributesForElementsInRect:(CGRect)rect{
     
     NSArray *original = [super layoutAttributesForElementsInRect:rect];
@@ -70,5 +71,8 @@
     return attributes;
 }
 
-
+- (void)prepareLayout{
+    [self invalidateLayout];
+}
+ */
 @end

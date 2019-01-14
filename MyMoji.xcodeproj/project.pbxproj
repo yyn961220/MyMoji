@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8313916721EC24C8001791FA /* KaomojiList.json in Resources */ = {isa = PBXBuildFile; fileRef = 8313916621EC24C8001791FA /* KaomojiList.json */; };
 		83A5F87E21DE15A400344B91 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A5F87D21DE15A400344B91 /* AppDelegate.m */; };
 		83A5F88121DE15A400344B91 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A5F88021DE15A400344B91 /* ViewController.m */; };
 		83A5F88421DE15A400344B91 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83A5F88221DE15A400344B91 /* Main.storyboard */; };
@@ -49,6 +50,7 @@
 		3D037DBF5BC6A625E1E1655B /* Pods-MyMoji.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyMoji.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyMoji/Pods-MyMoji.release.xcconfig"; sourceTree = "<group>"; };
 		4CCE5EF44A2C671095D3F099 /* libPods-MyMojiTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MyMojiTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5898FDDA7A1F7C21B9B5E631 /* Pods-MyMojiTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyMojiTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyMojiTests/Pods-MyMojiTests.release.xcconfig"; sourceTree = "<group>"; };
+		8313916621EC24C8001791FA /* KaomojiList.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = KaomojiList.json; sourceTree = "<group>"; };
 		834100680D27B0CF4D03F609 /* libPods-MyMoji.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MyMoji.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		83A5F87921DE15A400344B91 /* MyMoji.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyMoji.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		83A5F87C21DE15A400344B91 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 				83A5F88521DE15A500344B91 /* Assets.xcassets */,
 				83A5F88721DE15A500344B91 /* LaunchScreen.storyboard */,
 				83A5F8B121DEEBBE00344B91 /* TestKaomejiList.plist */,
+				8313916621EC24C8001791FA /* KaomojiList.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -348,6 +351,7 @@
 			files = (
 				83A5F88921DE15A500344B91 /* LaunchScreen.storyboard in Resources */,
 				83A5F88621DE15A500344B91 /* Assets.xcassets in Resources */,
+				8313916721EC24C8001791FA /* KaomojiList.json in Resources */,
 				83A5F88421DE15A400344B91 /* Main.storyboard in Resources */,
 				83A5F8B221DEEBBE00344B91 /* TestKaomejiList.plist in Resources */,
 			);

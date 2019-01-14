@@ -9,6 +9,7 @@
 #import "MMKaomojiPageController.h"
 #import "MMKaomojiListController.h"
 
+
 @interface MMKaomojiPageController ()
 @property (nonatomic,strong) NSDictionary *dataItems;
 @end
@@ -25,8 +26,17 @@
 
 - (void)loadData{
     //    // 加载数据
-     NSString *path = [[NSBundle mainBundle] pathForResource:@"TestKaomejiList" ofType:@"plist"];
-    NSDictionary *dictonary = [NSDictionary dictionaryWithContentsOfFile:path];
+     NSString *path = [[NSBundle mainBundle] pathForResource:@"KaomojiList" ofType:@"json"];
+//    NSDictionary *dictonary = [NSDictionary dictionaryWithContentsOfFile:path];
+    NSData *jsonData = [[NSData alloc] initWithContentsOfFile:path];
+    
+    NSError *error = nil;
+    NSDictionary *dictonary = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:&error];
+    if (dictonary == nil) {
+        NSLog(@"error = %@",error);
+        return;
+    }
+    
     self.dataItems = [dictonary copy];
     self.titles = [[dictonary allKeys] sortedArrayUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
         NSString *string1 = obj1;

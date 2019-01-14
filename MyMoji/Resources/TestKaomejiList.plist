@@ -2,7 +2,7 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>Test0</key>
+	<key>laugh</key>
 	<array>
 		<array>
 			<string>( ･⊝･ )</string>
@@ -99,7 +99,7 @@
 			<string>（#＾ω＾）</string>
 		</array>
 	</array>
-	<key>Test1</key>
+	<key>happy</key>
 	<array>
 		<array>
 			<string>( ･⊝･ )</string>
@@ -196,7 +196,7 @@
 			<string>（#＾ω＾）</string>
 		</array>
 	</array>
-	<key>Test2</key>
+	<key>angry</key>
 	<array>
 		<array>
 			<string>( ･⊝･ )</string>
@@ -293,7 +293,7 @@
 			<string>（#＾ω＾）</string>
 		</array>
 	</array>
-	<key>Test3</key>
+	<key>sad</key>
 	<array>
 		<array>
 			<string>( ･⊝･ )</string>

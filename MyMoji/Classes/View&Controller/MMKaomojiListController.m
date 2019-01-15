@@ -8,6 +8,7 @@
 
 #import "MMKaomojiListController.h"
 #import "MMTextListCollectionView.h"
+#import "SCLAlertView.h"
 
 @interface MMKaomojiListController()
 @property (nonatomic, strong) MMTextListCollectionView *collectionView ;
@@ -30,8 +31,30 @@
     if (self.collectionView == nil) {
         MMTextListCollectionView *collectionView = [[MMTextListCollectionView alloc] initWithFrame:self.view.bounds items:@[]];
         collectionView.backgroundColor = [UIColor whiteColor];
+        __weak typeof(self) weakSelf = self;
         collectionView.cellSelectHander = ^(id  _Nonnull selectItem, NSIndexPath * _Nonnull selectIndexPath) {
-            NSLog(@"selectItem:%@,indexpath:%@",selectItem,selectIndexPath);
+//            NSLog(@"selectItem:%@,indexpath:%@",selectItem,selectIndexPath);
+//            weakSelf
+            NSString *title = selectItem ;
+            
+            SCLAlertView *alert = [[SCLAlertView alloc] init];
+            
+            [alert addButton:@"复制" actionBlock:^(void) {
+                [weakSelf copyWithText:title];
+//                [weakSelf performSelector:@selector(copyWithText:) withObject:title afterDelay:0.5];
+            }];
+            [alert addButton:@"收藏" actionBlock:^(void) {
+                [weakSelf addToFavirateWithText:title];
+            }];
+            
+            alert.showAnimationType = SCLAlertViewShowAnimationSlideInToCenter ;
+            
+            alert.shouldDismissOnTapOutside = YES;
+            
+            
+            [alert showTitle:weakSelf.parentViewController title:title subTitle:nil style:SCLAlertViewStyleWaiting  closeButtonTitle:@"取消" duration:0.0f];
+
+            
         };
         
         [self.view addSubview:collectionView];
@@ -39,6 +62,23 @@
     }
    
     self.collectionView.dataItems = self.dataItems;
+}
+
+- (void)copyWithText:(NSString *)text{
+    
+    //复制内容
+    UIPasteboard *board = [UIPasteboard generalPasteboard];
+    [board setString:text];
+    
+    SCLAlertView *sucessAlert = [[SCLAlertView alloc] init];
+
+    sucessAlert.showAnimationType = SCLAlertViewShowAnimationSlideInToCenter;
+    sucessAlert.shouldDismissOnTapOutside = YES;
+    [sucessAlert showInfo:self.parentViewController title: [NSString stringWithFormat:@"%@已复制到粘贴板上",text] subTitle:@"请在其他应用里粘贴" closeButtonTitle:@"Done" duration:0.0];
+}
+
+- (void)addToFavirateWithText:(NSString *)text{
+    
 }
 
 - (void)setDataItems:(NSArray *)dataItems{

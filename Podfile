@@ -7,7 +7,7 @@ target 'MyMoji' do
 
   # Pods for MyMoji
    pod 'WMPageController'
-  
+   pod 'SCLAlertView-Objective-C'
 
   target 'MyMojiTests' do
     inherit! :search_paths

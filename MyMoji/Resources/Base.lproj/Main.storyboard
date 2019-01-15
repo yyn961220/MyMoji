@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Pvg-vS-Qlm">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="yIG-QA-KIu">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,10 +10,11 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
+        <!--颜文字-->
         <scene sceneID="a80-Sg-7OW">
             <objects>
                 <navigationController id="Pvg-vS-Qlm" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="颜文字" image="Kaomoji" id="aNg-Vx-sJS"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="4fx-KK-yV1">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -24,7 +25,26 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v1h-N7-KlU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1105" y="-296"/>
+            <point key="canvasLocation" x="-1238" y="-700"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="SO1-hM-BPs">
+            <objects>
+                <tabBarController id="yIG-QA-KIu" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="A9n-kh-iuu">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="Pvg-vS-Qlm" kind="relationship" relationship="viewControllers" id="SUN-gs-gKZ"/>
+                        <segue destination="4Fv-wo-Mgl" kind="relationship" relationship="viewControllers" id="3WS-NY-KPa"/>
+                        <segue destination="MZY-4E-y7Q" kind="relationship" relationship="viewControllers" id="T1U-9T-LZK"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AnD-Q9-ROX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2149" y="-210"/>
         </scene>
         <!--Kaomoji Page Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -40,7 +60,78 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="222" y="-225"/>
+            <point key="canvasLocation" x="-394" y="-700"/>
+        </scene>
+        <!--收藏-->
+        <scene sceneID="muZ-m0-74N">
+            <objects>
+                <navigationController id="4Fv-wo-Mgl" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="收藏" image="Favorite" id="1wQ-TQ-w8m"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="0M9-8w-FUi">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="gMu-lE-8pq" kind="relationship" relationship="rootViewController" id="bNR-2s-wMS"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3RE-Xb-RgW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1239" y="11"/>
+        </scene>
+        <!--Kaomoji Page Controller-->
+        <scene sceneID="xSA-hi-IYY">
+            <objects>
+                <viewController id="gMu-lE-8pq" customClass="MMKaomojiPageController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="e9e-g9-C4U">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="jSD-6Y-4Yg"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="VXJ-On-hwh"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="q1A-fk-3IG" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-394" y="-24"/>
+        </scene>
+        <!--设置-->
+        <scene sceneID="gI9-M8-LnS">
+            <objects>
+                <navigationController id="MZY-4E-y7Q" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="设置" image="Settings" id="ncv-v9-h3G"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="CaD-hr-GEB">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="22b-Eu-bq8" kind="relationship" relationship="rootViewController" id="Ha0-iu-axz"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4yJ-yU-fAx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1239" y="681"/>
+        </scene>
+        <!--Kaomoji Page Controller-->
+        <scene sceneID="7Bt-Qc-Lu1">
+            <objects>
+                <viewController id="22b-Eu-bq8" customClass="MMKaomojiPageController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="abI-40-EW6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="ikn-Dl-8RL"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="XFw-Xl-S3J"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6cs-af-CMk" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-394" y="681"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Favorite" width="32" height="32"/>
+        <image name="Kaomoji" width="32" height="32"/>
+        <image name="Settings" width="32" height="32"/>
+    </resources>
 </document>

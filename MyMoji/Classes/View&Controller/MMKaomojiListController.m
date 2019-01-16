@@ -10,6 +10,9 @@
 #import "MMTextListCollectionView.h"
 #import "SCLAlertView.h"
 
+#import "MMFavoriteManager.h"
+
+
 @interface MMKaomojiListController()
 @property (nonatomic, strong) MMTextListCollectionView *collectionView ;
 @end
@@ -43,9 +46,19 @@
                 [weakSelf copyWithText:title];
 //                [weakSelf performSelector:@selector(copyWithText:) withObject:title afterDelay:0.5];
             }];
-            [alert addButton:@"收藏" actionBlock:^(void) {
-                [weakSelf addToFavirateWithText:title];
-            }];
+            
+            BOOL contains = [[MMFavoriteManager shareManager] containsItem:title];
+            NSString *favoriteButtonTitle = contains ? @"从收藏中移除":@"收藏";
+            if (contains) {
+                [alert addButton:favoriteButtonTitle actionBlock:^(void) {
+                    [weakSelf removeFavirateWithText:title];
+                }];
+            }else{
+                [alert addButton:favoriteButtonTitle actionBlock:^(void) {
+                    [weakSelf addToFavirateWithText:title];
+                }];
+            }
+           
             
             alert.showAnimationType = SCLAlertViewShowAnimationSlideInToCenter ;
             
@@ -78,7 +91,11 @@
 }
 
 - (void)addToFavirateWithText:(NSString *)text{
-    
+    [[MMFavoriteManager shareManager] addFavoriteItem:text] ;
+}
+
+- (void)removeFavirateWithText:(NSString *)text{
+    [[MMFavoriteManager shareManager] removeFavoriteItem:text] ;
 }
 
 - (void)setDataItems:(NSArray *)dataItems{

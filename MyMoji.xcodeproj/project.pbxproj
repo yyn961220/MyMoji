@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		8313916721EC24C8001791FA /* KaomojiList.json in Resources */ = {isa = PBXBuildFile; fileRef = 8313916621EC24C8001791FA /* KaomojiList.json */; };
 		8313916A21EE0822001791FA /* MMFavoriteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8313916921EE0822001791FA /* MMFavoriteManager.m */; };
+		8313916D21EED200001791FA /* MMKaomojiFavoriteController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8313916C21EED200001791FA /* MMKaomojiFavoriteController.m */; };
 		83A5F87E21DE15A400344B91 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A5F87D21DE15A400344B91 /* AppDelegate.m */; };
 		83A5F88121DE15A400344B91 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A5F88021DE15A400344B91 /* ViewController.m */; };
 		83A5F88421DE15A400344B91 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83A5F88221DE15A400344B91 /* Main.storyboard */; };
@@ -54,6 +55,8 @@
 		8313916621EC24C8001791FA /* KaomojiList.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = KaomojiList.json; sourceTree = "<group>"; };
 		8313916821EE0822001791FA /* MMFavoriteManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMFavoriteManager.h; sourceTree = "<group>"; };
 		8313916921EE0822001791FA /* MMFavoriteManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMFavoriteManager.m; sourceTree = "<group>"; };
+		8313916B21EED200001791FA /* MMKaomojiFavoriteController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMKaomojiFavoriteController.h; sourceTree = "<group>"; };
+		8313916C21EED200001791FA /* MMKaomojiFavoriteController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMKaomojiFavoriteController.m; sourceTree = "<group>"; };
 		834100680D27B0CF4D03F609 /* libPods-MyMoji.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MyMoji.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		83A5F87921DE15A400344B91 /* MyMoji.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyMoji.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		83A5F87C21DE15A400344B91 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -223,6 +226,8 @@
 			children = (
 				83A5F8B521DEFCAB00344B91 /* MMKaomojiListController.h */,
 				83A5F8B621DEFCAB00344B91 /* MMKaomojiListController.m */,
+				8313916B21EED200001791FA /* MMKaomojiFavoriteController.h */,
+				8313916C21EED200001791FA /* MMKaomojiFavoriteController.m */,
 				83A5F8E421DF487600344B91 /* MMTextListCollectionView.h */,
 				83A5F8E521DF487600344B91 /* MMTextListCollectionView.m */,
 				83A5F8EA21E0A22300344B91 /* MMKaomojiPageController.h */,
@@ -458,6 +463,7 @@
 				83A5F88121DE15A400344B91 /* ViewController.m in Sources */,
 				83A5F8E921DF540500344B91 /* MMTextCell.m in Sources */,
 				83A5F88C21DE15A500344B91 /* main.m in Sources */,
+				8313916D21EED200001791FA /* MMKaomojiFavoriteController.m in Sources */,
 				83A5F87E21DE15A400344B91 /* AppDelegate.m in Sources */,
 				83A5F8E621DF487600344B91 /* MMTextListCollectionView.m in Sources */,
 				8313916A21EE0822001791FA /* MMFavoriteManager.m in Sources */,

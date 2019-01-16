@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,copy)  void(^cellSelectHander)(id selectItem,NSIndexPath *selectIndexPath);
 
 - (instancetype)initWithFrame:(CGRect)frame items:(NSArray *)items ;
+
 @end
 
 NS_ASSUME_NONNULL_END

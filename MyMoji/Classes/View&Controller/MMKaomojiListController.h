@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MMKaomojiListController : UIViewController
 @property (nonatomic,strong) NSArray *dataItems;
+
+- (BOOL)needRemoveItemFromList;
 @end
 
 NS_ASSUME_NONNULL_END

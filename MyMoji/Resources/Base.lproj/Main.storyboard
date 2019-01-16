@@ -79,10 +79,10 @@
             </objects>
             <point key="canvasLocation" x="-1239" y="11"/>
         </scene>
-        <!--Kaomoji Page Controller-->
+        <!--Kaomoji Favorite Controller-->
         <scene sceneID="xSA-hi-IYY">
             <objects>
-                <viewController id="gMu-lE-8pq" customClass="MMKaomojiPageController" sceneMemberID="viewController">
+                <viewController id="gMu-lE-8pq" customClass="MMKaomojiFavoriteController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="e9e-g9-C4U">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

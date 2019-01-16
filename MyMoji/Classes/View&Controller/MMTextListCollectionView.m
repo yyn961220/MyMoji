@@ -89,6 +89,13 @@
     
 }
 
+//- (void)removeCellsAndModelsWithIndexPath:(NSIndexPath *)indexPath{
+//    NSMutableArray *arrays = [NSMutableArray arrayWithArray:self.dataItems];
+//    NSMutableArray *sectionArray = [NSMutableArray arrayWithArray:[self.dataItems objectAtIndex:indexPath.section]];
+//    [sectionArray removeObjectAtIndex:indexPath.row];
+//    [arrays replaceObjectAtIndex:indexPath.section withObject:sectionArray];
+//    self.dataItems = arrays;
+//}
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
     //    [collectionView.collectionViewLayout invalidateLayout];

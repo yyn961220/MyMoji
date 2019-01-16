@@ -25,6 +25,10 @@
     // Do any additional setup after loading the view.
 }
 
+- (BOOL)needRemoveItemFromList{
+    return NO;
+}
+
 - (void)loadDataAndViewIfNeed{
 //    // 加载数据
 //    NSString *path = [[NSBundle mainBundle] pathForResource:@"TestKaomejiList" ofType:@"plist"];
@@ -35,6 +39,7 @@
         MMTextListCollectionView *collectionView = [[MMTextListCollectionView alloc] initWithFrame:self.view.bounds items:@[]];
         collectionView.backgroundColor = [UIColor whiteColor];
         __weak typeof(self) weakSelf = self;
+        __weak typeof(collectionView) weakcollectionView = collectionView;
         collectionView.cellSelectHander = ^(id  _Nonnull selectItem, NSIndexPath * _Nonnull selectIndexPath) {
 //            NSLog(@"selectItem:%@,indexpath:%@",selectItem,selectIndexPath);
 //            weakSelf
@@ -52,6 +57,10 @@
             if (contains) {
                 [alert addButton:favoriteButtonTitle actionBlock:^(void) {
                     [weakSelf removeFavirateWithText:title];
+                    if ([self needRemoveItemFromList]) {
+//                        [weakcollectionView removeCellsAndModelsWithIndexPath:selectIndexPath];
+                        [weakcollectionView deleteItemsAtIndexPaths:@[selectIndexPath]];
+                    }
                 }];
             }else{
                 [alert addButton:favoriteButtonTitle actionBlock:^(void) {

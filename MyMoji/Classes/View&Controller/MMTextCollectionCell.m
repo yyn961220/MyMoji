@@ -1,21 +1,21 @@
 //
-//  MMTextCell.m
+//  MMTextCollectionCell.m
 //  MyMoji
 //
 //  Created by Xingfa Zhou on 2019/1/4.
 //  Copyright © 2019 BeterLife. All rights reserved.
 //
 
-#import "MMTextCell.h"
+#import "MMTextCollectionCell.h"
 
 
-@interface MMTextCell ()
+@interface MMTextCollectionCell ()
 
 @property (nonatomic,strong) UILabel * textLabel;  //cell中的文
 
 @end
 
-@implementation MMTextCell
+@implementation MMTextCollectionCell
 
 - (instancetype)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];

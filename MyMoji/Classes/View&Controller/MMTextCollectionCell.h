@@ -1,5 +1,5 @@
 //
-//  MMTextCell.h
+//  MMTextCollectionCell.h
 //  MyMoji
 //
 //  Created by Xingfa Zhou on 2019/1/4.
@@ -10,7 +10,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MMTextCell : UICollectionViewCell
+#define kMMTextCollectionCellIdentifier  @"kMMTextCollectionCell"
+
+@interface MMTextCollectionCell : UICollectionViewCell
 @property (readonly, nonatomic) UILabel * textLabel;  //cell中的文
 @end
 

@@ -8,7 +8,7 @@
 
 #import "MMTextListCollectionView.h"
 #import "MMTextListFlowLayout.h"
-#import "MMTextCell.h"
+#import "MMTextCollectionCell.h"
 
 @interface MMTextListCollectionView ()<UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>{
 }
@@ -36,7 +36,7 @@
         self.delegate = self;
         self.dataItems  = [items copy];
         
-        [self registerClass:[MMTextCell class] forCellWithReuseIdentifier:kMMTextCellIdentifier];
+        [self registerClass:[MMTextCollectionCell class] forCellWithReuseIdentifier:kMMTextCellIdentifier];
     
         
     }
@@ -124,7 +124,7 @@
  *  @return               item视图
  */
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    MMTextCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kMMTextCellIdentifier forIndexPath:indexPath];
+    MMTextCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kMMTextCellIdentifier forIndexPath:indexPath];
     //    for (UIView *vie in cell.contentView.subviews) {
     //        if ([vie isKindOfClass:[UILabel class]]) {
     //            [vie removeFromSuperview];

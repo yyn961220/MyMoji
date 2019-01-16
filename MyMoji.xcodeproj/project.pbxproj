@@ -10,8 +10,11 @@
 		8313916721EC24C8001791FA /* KaomojiList.json in Resources */ = {isa = PBXBuildFile; fileRef = 8313916621EC24C8001791FA /* KaomojiList.json */; };
 		8313916A21EE0822001791FA /* MMFavoriteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8313916921EE0822001791FA /* MMFavoriteManager.m */; };
 		8313916D21EED200001791FA /* MMKaomojiFavoriteController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8313916C21EED200001791FA /* MMKaomojiFavoriteController.m */; };
+		8313917021EF00F1001791FA /* MMTextHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8313916F21EF00F1001791FA /* MMTextHeaderView.m */; };
+		8313917321EF02AA001791FA /* MMKaomojiAllController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8313917221EF02AA001791FA /* MMKaomojiAllController.m */; };
+		8313917721EF084C001791FA /* MMTextTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8313917621EF084C001791FA /* MMTextTableViewCell.m */; };
+		8313917921EF112E001791FA /* MyKaomojiList.json in Resources */ = {isa = PBXBuildFile; fileRef = 8313917821EF112E001791FA /* MyKaomojiList.json */; };
 		83A5F87E21DE15A400344B91 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A5F87D21DE15A400344B91 /* AppDelegate.m */; };
-		83A5F88121DE15A400344B91 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A5F88021DE15A400344B91 /* ViewController.m */; };
 		83A5F88421DE15A400344B91 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83A5F88221DE15A400344B91 /* Main.storyboard */; };
 		83A5F88621DE15A500344B91 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 83A5F88521DE15A500344B91 /* Assets.xcassets */; };
 		83A5F88921DE15A500344B91 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83A5F88721DE15A500344B91 /* LaunchScreen.storyboard */; };
@@ -22,7 +25,7 @@
 		83A5F8B721DEFCAB00344B91 /* MMKaomojiListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A5F8B621DEFCAB00344B91 /* MMKaomojiListController.m */; };
 		83A5F8BA21DEFD3500344B91 /* MMTextListFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A5F8B921DEFD3500344B91 /* MMTextListFlowLayout.m */; };
 		83A5F8E621DF487600344B91 /* MMTextListCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A5F8E521DF487600344B91 /* MMTextListCollectionView.m */; };
-		83A5F8E921DF540500344B91 /* MMTextCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A5F8E821DF540500344B91 /* MMTextCell.m */; };
+		83A5F8E921DF540500344B91 /* MMTextCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A5F8E821DF540500344B91 /* MMTextCollectionCell.m */; };
 		83A5F8EC21E0A22300344B91 /* MMKaomojiPageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A5F8EB21E0A22300344B91 /* MMKaomojiPageController.m */; };
 		CFC9BAF6C21BDA82310C58CC /* libPods-MyMojiTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CCE5EF44A2C671095D3F099 /* libPods-MyMojiTests.a */; };
 		D1C05EB153625D1882856AE2 /* libPods-MyMojiUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DA06F6BF88588D663F50020D /* libPods-MyMojiUITests.a */; };
@@ -57,12 +60,18 @@
 		8313916921EE0822001791FA /* MMFavoriteManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMFavoriteManager.m; sourceTree = "<group>"; };
 		8313916B21EED200001791FA /* MMKaomojiFavoriteController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMKaomojiFavoriteController.h; sourceTree = "<group>"; };
 		8313916C21EED200001791FA /* MMKaomojiFavoriteController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMKaomojiFavoriteController.m; sourceTree = "<group>"; };
+		8313916E21EF00F1001791FA /* MMTextHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMTextHeaderView.h; sourceTree = "<group>"; };
+		8313916F21EF00F1001791FA /* MMTextHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMTextHeaderView.m; sourceTree = "<group>"; };
+		8313917121EF02AA001791FA /* MMKaomojiAllController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMKaomojiAllController.h; sourceTree = "<group>"; };
+		8313917221EF02AA001791FA /* MMKaomojiAllController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMKaomojiAllController.m; sourceTree = "<group>"; };
+		8313917421EF066C001791FA /* MyMoji.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyMoji.pch; sourceTree = "<group>"; };
+		8313917521EF084C001791FA /* MMTextTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMTextTableViewCell.h; sourceTree = "<group>"; };
+		8313917621EF084C001791FA /* MMTextTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMTextTableViewCell.m; sourceTree = "<group>"; };
+		8313917821EF112E001791FA /* MyKaomojiList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MyKaomojiList.json; sourceTree = "<group>"; };
 		834100680D27B0CF4D03F609 /* libPods-MyMoji.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MyMoji.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		83A5F87921DE15A400344B91 /* MyMoji.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyMoji.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		83A5F87C21DE15A400344B91 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		83A5F87D21DE15A400344B91 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		83A5F87F21DE15A400344B91 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		83A5F88021DE15A400344B91 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		83A5F88321DE15A400344B91 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		83A5F88521DE15A500344B91 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		83A5F88821DE15A500344B91 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -81,8 +90,8 @@
 		83A5F8B921DEFD3500344B91 /* MMTextListFlowLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMTextListFlowLayout.m; sourceTree = "<group>"; };
 		83A5F8E421DF487600344B91 /* MMTextListCollectionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMTextListCollectionView.h; sourceTree = "<group>"; };
 		83A5F8E521DF487600344B91 /* MMTextListCollectionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMTextListCollectionView.m; sourceTree = "<group>"; };
-		83A5F8E721DF540500344B91 /* MMTextCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMTextCell.h; sourceTree = "<group>"; };
-		83A5F8E821DF540500344B91 /* MMTextCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMTextCell.m; sourceTree = "<group>"; };
+		83A5F8E721DF540500344B91 /* MMTextCollectionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMTextCollectionCell.h; sourceTree = "<group>"; };
+		83A5F8E821DF540500344B91 /* MMTextCollectionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMTextCollectionCell.m; sourceTree = "<group>"; };
 		83A5F8EA21E0A22300344B91 /* MMKaomojiPageController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMKaomojiPageController.h; sourceTree = "<group>"; };
 		83A5F8EB21E0A22300344B91 /* MMKaomojiPageController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMKaomojiPageController.m; sourceTree = "<group>"; };
 		922C02BC2AE3ACDCFF39E732 /* Pods-MyMojiUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyMojiUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyMojiUITests/Pods-MyMojiUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -185,8 +194,6 @@
 				83A5F8B321DEFA9A00344B91 /* Model */,
 				83A5F87C21DE15A400344B91 /* AppDelegate.h */,
 				83A5F87D21DE15A400344B91 /* AppDelegate.m */,
-				83A5F87F21DE15A400344B91 /* ViewController.h */,
-				83A5F88021DE15A400344B91 /* ViewController.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -199,6 +206,7 @@
 				83A5F88721DE15A500344B91 /* LaunchScreen.storyboard */,
 				83A5F8B121DEEBBE00344B91 /* TestKaomejiList.plist */,
 				8313916621EC24C8001791FA /* KaomojiList.json */,
+				8313917821EF112E001791FA /* MyKaomojiList.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -208,6 +216,7 @@
 			children = (
 				83A5F88A21DE15A500344B91 /* Info.plist */,
 				83A5F88B21DE15A500344B91 /* main.m */,
+				8313917421EF066C001791FA /* MyMoji.pch */,
 			);
 			path = Supports;
 			sourceTree = "<group>";
@@ -232,10 +241,16 @@
 				83A5F8E521DF487600344B91 /* MMTextListCollectionView.m */,
 				83A5F8EA21E0A22300344B91 /* MMKaomojiPageController.h */,
 				83A5F8EB21E0A22300344B91 /* MMKaomojiPageController.m */,
+				8313917121EF02AA001791FA /* MMKaomojiAllController.h */,
+				8313917221EF02AA001791FA /* MMKaomojiAllController.m */,
 				83A5F8B821DEFD3500344B91 /* MMTextListFlowLayout.h */,
 				83A5F8B921DEFD3500344B91 /* MMTextListFlowLayout.m */,
-				83A5F8E721DF540500344B91 /* MMTextCell.h */,
-				83A5F8E821DF540500344B91 /* MMTextCell.m */,
+				8313916E21EF00F1001791FA /* MMTextHeaderView.h */,
+				8313916F21EF00F1001791FA /* MMTextHeaderView.m */,
+				83A5F8E721DF540500344B91 /* MMTextCollectionCell.h */,
+				83A5F8E821DF540500344B91 /* MMTextCollectionCell.m */,
+				8313917521EF084C001791FA /* MMTextTableViewCell.h */,
+				8313917621EF084C001791FA /* MMTextTableViewCell.m */,
 			);
 			path = "View&Controller";
 			sourceTree = "<group>";
@@ -363,6 +378,7 @@
 				83A5F88621DE15A500344B91 /* Assets.xcassets in Resources */,
 				8313916721EC24C8001791FA /* KaomojiList.json in Resources */,
 				83A5F88421DE15A400344B91 /* Main.storyboard in Resources */,
+				8313917921EF112E001791FA /* MyKaomojiList.json in Resources */,
 				83A5F8B221DEEBBE00344B91 /* TestKaomejiList.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -460,11 +476,13 @@
 				83A5F8B721DEFCAB00344B91 /* MMKaomojiListController.m in Sources */,
 				83A5F8EC21E0A22300344B91 /* MMKaomojiPageController.m in Sources */,
 				83A5F8BA21DEFD3500344B91 /* MMTextListFlowLayout.m in Sources */,
-				83A5F88121DE15A400344B91 /* ViewController.m in Sources */,
-				83A5F8E921DF540500344B91 /* MMTextCell.m in Sources */,
+				8313917321EF02AA001791FA /* MMKaomojiAllController.m in Sources */,
+				83A5F8E921DF540500344B91 /* MMTextCollectionCell.m in Sources */,
 				83A5F88C21DE15A500344B91 /* main.m in Sources */,
+				8313917721EF084C001791FA /* MMTextTableViewCell.m in Sources */,
 				8313916D21EED200001791FA /* MMKaomojiFavoriteController.m in Sources */,
 				83A5F87E21DE15A400344B91 /* AppDelegate.m in Sources */,
+				8313917021EF00F1001791FA /* MMTextHeaderView.m in Sources */,
 				83A5F8E621DF487600344B91 /* MMTextListCollectionView.m in Sources */,
 				8313916A21EE0822001791FA /* MMFavoriteManager.m in Sources */,
 			);
@@ -640,6 +658,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7V5X2W9W5Y;
+				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = MyMoji/Supports/MyMoji.pch;
 				INFOPLIST_FILE = "$(SRCROOT)/MyMoji/Supports/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -659,6 +680,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7V5X2W9W5Y;
+				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = MyMoji/Supports/MyMoji.pch;
 				INFOPLIST_FILE = "$(SRCROOT)/MyMoji/Supports/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (

@@ -46,10 +46,10 @@
             </objects>
             <point key="canvasLocation" x="-2149" y="-210"/>
         </scene>
-        <!--Kaomoji Page Controller-->
+        <!--Kaomoji All Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="MMKaomojiPageController" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MMKaomojiAllController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

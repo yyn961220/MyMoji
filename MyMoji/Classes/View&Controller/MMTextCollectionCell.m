@@ -47,8 +47,6 @@
 
 - (void)layoutSubviews{
     [super layoutSubviews];
-    self.textLabel.frame = self.bounds;
-    
-    
+    self.textLabel.frame = self.contentView.bounds;
 }
 @end

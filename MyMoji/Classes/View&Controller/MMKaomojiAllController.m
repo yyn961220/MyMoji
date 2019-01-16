@@ -38,9 +38,9 @@ UICollectionViewDataSource>{
     _isScrollDown = YES;
     // Do any additional setup after loading the view.
     
-    self.edgesForExtendedLayout = UIRectEdgeNone;
-    self.extendedLayoutIncludesOpaqueBars = NO;
-    self.automaticallyAdjustsScrollViewInsets = NO;
+//    self.edgesForExtendedLayout = UIRectEdgeNone;
+//    self.extendedLayoutIncludesOpaqueBars = NO;
+//    self.automaticallyAdjustsScrollViewInsets = NO;
     
     self.view.backgroundColor = [UIColor whiteColor];
     
@@ -104,7 +104,7 @@ UICollectionViewDataSource>{
         _tableView.delegate = self;
         _tableView.dataSource = self;
         _tableView.tableFooterView = [UIView new];
-        _tableView.rowHeight = 55;
+        _tableView.rowHeight = 44;
         _tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
         _tableView.showsVerticalScrollIndicator = NO;
         _tableView.separatorColor = [UIColor clearColor];
@@ -219,8 +219,17 @@ UICollectionViewDataSource>{
 - (CGSize)collectionView:(UICollectionView *)collectionView
                   layout:(UICollectionViewLayout *)collectionViewLayout
   sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
-    return CGSizeMake((SCREEN_WIDTH - kLeftTableViewWidth - 4 * kCollectionViewMargin) / 3,
-                      (SCREEN_WIDTH - kLeftTableViewWidth - 4 * kCollectionViewMargin) / 3 + 30);
+    NSArray *array = [self.allList objectForKey:[self.categates objectAtIndex:indexPath.section]];
+    NSString *str = [array objectAtIndex:indexPath.item];
+   
+    /* 根据每一项的字符串确定每一项的size */
+    NSDictionary *dict = @{NSFontAttributeName:[UIFont systemFontOfSize:18]};
+    
+    
+    CGSize size        = [str boundingRectWithSize:CGSizeMake(collectionView.frame.size.width, 1000) options:NSStringDrawingUsesFontLeading|NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingTruncatesLastVisibleLine attributes:dict context:nil].size;
+    size.height        = 40;
+    size.width         += 10;
+    return size;
 }
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView

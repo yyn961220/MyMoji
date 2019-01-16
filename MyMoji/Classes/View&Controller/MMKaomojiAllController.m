@@ -13,6 +13,9 @@
 #import "MMTextCollectionCell.h"
 #import "MMTextHeaderView.h"
 
+#import "SCLAlertView.h"
+#import "MMFavoriteManager.h"
+
 static float kLeftTableViewWidth = 80.f;
 static float kCollectionViewMargin = 3.f;
 
@@ -232,10 +235,44 @@ UICollectionViewDataSource>{
     return size;
 }
 
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    NSArray *array = [self.allList objectForKey:[self.categates objectAtIndex:indexPath.section]];
+    NSString *model = [array objectAtIndex:indexPath.item];
+    
+    
+    __weak typeof(self) weakSelf = self;
+    
+    SCLAlertView *alert = [[SCLAlertView alloc] init];
+    
+    [alert addButton:@"复制" actionBlock:^(void) {
+        [weakSelf copyWithText:model];
+    }];
+    
+    BOOL contains = [[MMFavoriteManager shareManager] containsItem:model];
+    NSString *favoriteButtonTitle = contains ? @"从收藏中移除":@"收藏";
+    if (contains) {
+        [alert addButton:favoriteButtonTitle actionBlock:^(void) {
+            [weakSelf removeFavirateWithText:model];
+        }];
+    }else{
+        [alert addButton:favoriteButtonTitle actionBlock:^(void) {
+            [weakSelf addToFavirateWithText:model];
+        }];
+    }
+    
+    
+    alert.showAnimationType = SCLAlertViewShowAnimationSlideInToCenter ;
+    
+    alert.shouldDismissOnTapOutside = YES;
+    
+    
+    [alert showTitle:weakSelf.parentViewController title:model subTitle:nil style:SCLAlertViewStyleWaiting  closeButtonTitle:@"取消" duration:0.0f];
+    
+}
+
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView
            viewForSupplementaryElementOfKind:(NSString *)kind
-                                 atIndexPath:(NSIndexPath *)indexPath
-{
+                                 atIndexPath:(NSIndexPath *)indexPath{
     NSString *reuseIdentifier;
     if ([kind isEqualToString:UICollectionElementKindSectionHeader])
     { // header
@@ -252,14 +289,12 @@ UICollectionViewDataSource>{
     return view;
 }
 
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section
-{
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section{
     return CGSizeMake(SCREEN_WIDTH, 30);
 }
 
 // CollectionView分区标题即将展示
-- (void)collectionView:(UICollectionView *)collectionView willDisplaySupplementaryView:(UICollectionReusableView *)view forElementKind:(NSString *)elementKind atIndexPath:(NSIndexPath *)indexPath
-{
+- (void)collectionView:(UICollectionView *)collectionView willDisplaySupplementaryView:(UICollectionReusableView *)view forElementKind:(NSString *)elementKind atIndexPath:(NSIndexPath *)indexPath{
     // 当前CollectionView滚动的方向向上，CollectionView是用户拖拽而产生滚动的（主要是判断CollectionView是用户拖拽而滚动的，还是点击TableView而滚动的）
     if (!_isScrollDown && (collectionView.dragging || collectionView.decelerating))
     {
@@ -268,8 +303,7 @@ UICollectionViewDataSource>{
 }
 
 // CollectionView分区标题展示结束
-- (void)collectionView:(UICollectionView *)collectionView didEndDisplayingSupplementaryView:(nonnull UICollectionReusableView *)view forElementOfKind:(nonnull NSString *)elementKind atIndexPath:(nonnull NSIndexPath *)indexPath
-{
+- (void)collectionView:(UICollectionView *)collectionView didEndDisplayingSupplementaryView:(nonnull UICollectionReusableView *)view forElementOfKind:(nonnull NSString *)elementKind atIndexPath:(nonnull NSIndexPath *)indexPath{
     // 当前CollectionView滚动的方向向下，CollectionView是用户拖拽而产生滚动的（主要是判断CollectionView是用户拖拽而滚动的，还是点击TableView而滚动的）
     if (_isScrollDown && (collectionView.dragging || collectionView.decelerating))
     {
@@ -278,15 +312,13 @@ UICollectionViewDataSource>{
 }
 
 // 当拖动CollectionView的时候，处理TableView
-- (void)selectRowAtIndexPath:(NSInteger)index
-{
+- (void)selectRowAtIndexPath:(NSInteger)index{
     [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0] animated:YES scrollPosition:UITableViewScrollPositionMiddle];
 }
 
 #pragma mark - UIScrollView Delegate
 // 标记一下CollectionView的滚动方向，是向上还是向下
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView
-{
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
     static float lastOffsetY = 0;
     
     if (self.collectionView == scrollView)
@@ -294,5 +326,27 @@ UICollectionViewDataSource>{
         _isScrollDown = lastOffsetY < scrollView.contentOffset.y;
         lastOffsetY = scrollView.contentOffset.y;
     }
+}
+
+#pragma mark -- action
+- (void)copyWithText:(NSString *)text{
+    
+    //复制内容
+    UIPasteboard *board = [UIPasteboard generalPasteboard];
+    [board setString:text];
+    
+    SCLAlertView *sucessAlert = [[SCLAlertView alloc] init];
+    
+    sucessAlert.showAnimationType = SCLAlertViewShowAnimationSlideInToCenter;
+    sucessAlert.shouldDismissOnTapOutside = YES;
+    [sucessAlert showInfo:self.parentViewController title: [NSString stringWithFormat:@"%@已复制到粘贴板上",text] subTitle:@"请在其他应用里粘贴" closeButtonTitle:@"Done" duration:0.0];
+}
+
+- (void)addToFavirateWithText:(NSString *)text{
+    [[MMFavoriteManager shareManager] addFavoriteItem:text] ;
+}
+
+- (void)removeFavirateWithText:(NSString *)text{
+    [[MMFavoriteManager shareManager] removeFavoriteItem:text] ;
 }
 @end

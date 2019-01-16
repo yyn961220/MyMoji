@@ -112,10 +112,10 @@
             </objects>
             <point key="canvasLocation" x="-1239" y="681"/>
         </scene>
-        <!--Kaomoji Page Controller-->
+        <!--View Controller-->
         <scene sceneID="7Bt-Qc-Lu1">
             <objects>
-                <viewController id="22b-Eu-bq8" customClass="MMKaomojiPageController" sceneMemberID="viewController">
+                <viewController id="22b-Eu-bq8" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="abI-40-EW6">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

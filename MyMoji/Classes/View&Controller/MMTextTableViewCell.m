@@ -29,6 +29,10 @@
         self.name.font = [UIFont systemFontOfSize:15];
         self.name.textColor = rgba(130, 130, 130, 1);
         self.name.highlightedTextColor = defaultColor;
+        
+        self.name.contentMode = UIViewContentModeCenter;
+        self.name.textAlignment = NSTextAlignmentLeft;
+        
         [self.contentView addSubview:self.name];
         
         self.yellowView = [[UIView alloc] initWithFrame:CGRectMake(0, 5, 5, 45)];

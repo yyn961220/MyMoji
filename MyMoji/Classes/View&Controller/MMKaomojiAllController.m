@@ -26,10 +26,12 @@ UICollectionViewDataSource>{
 }
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) UICollectionView *collectionView;
+
 @property (nonatomic, strong) NSMutableArray *categates;
 @property (nonatomic, strong) NSMutableDictionary *allList;
+@property (nonatomic, strong) NSMutableArray *cellSizes ;
 
-@property (nonatomic, strong) MMTextListFlowLayout *flowLayout;
+//@property (nonatomic, strong) MMTextListFlowLayout *flowLayout;
 
 @end
 
@@ -44,20 +46,9 @@ UICollectionViewDataSource>{
     self.view.backgroundColor = [UIColor whiteColor];
     
     
-    
-    
-    [self.view addSubview:self.tableView];
-    [self.view addSubview:self.collectionView];
-    
-    [self loadData];
-    
-    [self.tableView reloadData];
-    [self.collectionView reloadData];
-    
-    [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]
-                                animated:YES
-                          scrollPosition:UITableViewScrollPositionNone];
-    
+     [self loadData];
+     [self initTableAndCollecionView];
+
 }
 
 - (void)loadData{
@@ -77,11 +68,81 @@ UICollectionViewDataSource>{
     NSArray *categates = [dictonary valueForKey:@"Categates"];
     NSDictionary *allList = [dictonary valueForKey:@"AllList"];
     
+    [self.categates removeAllObjects];
+    [self.allList removeAllObjects];
+    
     [self.categates addObjectsFromArray:categates];
     [self.allList addEntriesFromDictionary:allList];
-
+    
+    /* 根据每一项的字符串确定每一项的size */
+    NSDictionary *dict = @{NSFontAttributeName:[UIFont systemFontOfSize:14]};
+    
+    NSMutableArray *widthsArray = [NSMutableArray array];
+    NSLog(@"begain get widthsArray");
+    
+    for (int i = 0; i < categates.count; i++) {
+        NSMutableArray *sectionArray = [NSMutableArray array];
+        for (NSString *string in [allList valueForKey:categates[i]]) {
+            CGFloat maxWidth  = SCREEN_WIDTH - kLeftTableViewWidth - 2 * kCollectionViewMargin ;
+            CGSize size        = [string boundingRectWithSize:CGSizeMake(maxWidth, 1000) options:NSStringDrawingUsesFontLeading|NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingTruncatesLastVisibleLine attributes:dict context:nil].size;
+            size.height        = 40;
+            size.width         += 10;
+            [sectionArray addObject:[NSValue valueWithCGSize:size]];
+        }
+        
+        [widthsArray addObject:sectionArray];
+    }
+    
+    self.cellSizes = widthsArray;
+    NSLog(@"end get widthsArray");
 }
 
+- (void)initTableAndCollecionView{
+    if (!_tableView){
+        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kLeftTableViewWidth, SCREEN_HEIGHT)];
+        _tableView.delegate = self;
+        _tableView.dataSource = self;
+        _tableView.tableFooterView = [UIView new];
+        _tableView.rowHeight = 30;
+        _tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
+        _tableView.showsVerticalScrollIndicator = NO;
+        _tableView.separatorColor = [UIColor clearColor];
+        [_tableView registerClass:[MMTextTableViewCell  class] forCellReuseIdentifier:kMMTextTableViewCellIdentifier];
+        [self.view addSubview:_tableView];
+    }
+    
+    if (!_collectionView){
+        MMTextListFlowLayout *flowLayout = [[MMTextListFlowLayout alloc] initWithArray:self.cellSizes edgeInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
+        flowLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
+        flowLayout.minimumInteritemSpacing = 2;
+        flowLayout.minimumLineSpacing = 2;
+        flowLayout.sectionHeadersPinToVisibleBounds = YES;
+        
+        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(kCollectionViewMargin + kLeftTableViewWidth, kCollectionViewMargin, SCREEN_WIDTH - kLeftTableViewWidth - 2 * kCollectionViewMargin, SCREEN_HEIGHT - 2 * kCollectionViewMargin) collectionViewLayout:flowLayout];
+        _collectionView.delegate = self;
+        _collectionView.dataSource = self;
+        _collectionView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
+        _collectionView.showsVerticalScrollIndicator = NO;
+        _collectionView.showsHorizontalScrollIndicator = NO;
+        [_collectionView setBackgroundColor:[UIColor clearColor]];
+        //注册cell
+        [_collectionView registerClass:[MMTextCollectionCell class] forCellWithReuseIdentifier:kMMTextCollectionCellIdentifier];
+        //注册分区头标题
+        [_collectionView registerClass:[MMTextHeaderView class]
+            forSupplementaryViewOfKind:UICollectionElementKindSectionHeader
+                   withReuseIdentifier:@"CollectionViewHeaderView"];
+        
+        [self.view addSubview:_collectionView];
+    }
+
+    [self.tableView reloadData];
+    [self.collectionView reloadData];
+    
+    [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]
+                                animated:YES
+                          scrollPosition:UITableViewScrollPositionNone];
+    
+}
 #pragma mark -- getters
 - (NSMutableArray *)categates{
     if (!_categates)
@@ -99,53 +160,6 @@ UICollectionViewDataSource>{
     return _allList;
 }
 
-- (UITableView *)tableView{
-    if (!_tableView)
-    {
-        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kLeftTableViewWidth, SCREEN_HEIGHT)];
-        _tableView.delegate = self;
-        _tableView.dataSource = self;
-        _tableView.tableFooterView = [UIView new];
-        _tableView.rowHeight = 30;
-        _tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
-        _tableView.showsVerticalScrollIndicator = NO;
-        _tableView.separatorColor = [UIColor clearColor];
-        [_tableView registerClass:[MMTextTableViewCell  class] forCellReuseIdentifier:kMMTextTableViewCellIdentifier];
-    }
-    return _tableView;
-}
-
-- (MMTextListFlowLayout *)flowLayout{
-    if (!_flowLayout)
-    {
-        _flowLayout = [[MMTextListFlowLayout alloc] init];
-        _flowLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
-        _flowLayout.minimumInteritemSpacing = 2;
-        _flowLayout.minimumLineSpacing = 2;
-        _flowLayout.sectionHeadersPinToVisibleBounds = YES;
-    }
-    return _flowLayout;
-}
-
-- (UICollectionView *)collectionView{
-    if (!_collectionView)
-    {
-        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(kCollectionViewMargin + kLeftTableViewWidth, kCollectionViewMargin, SCREEN_WIDTH - kLeftTableViewWidth - 2 * kCollectionViewMargin, SCREEN_HEIGHT - 2 * kCollectionViewMargin) collectionViewLayout:self.flowLayout];
-        _collectionView.delegate = self;
-        _collectionView.dataSource = self;
-        _collectionView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
-        _collectionView.showsVerticalScrollIndicator = NO;
-        _collectionView.showsHorizontalScrollIndicator = NO;
-        [_collectionView setBackgroundColor:[UIColor clearColor]];
-        //注册cell
-        [_collectionView registerClass:[MMTextCollectionCell class] forCellWithReuseIdentifier:kMMTextCollectionCellIdentifier];
-        //注册分区头标题
-        [_collectionView registerClass:[MMTextHeaderView class]
-            forSupplementaryViewOfKind:UICollectionElementKindSectionHeader
-                   withReuseIdentifier:@"CollectionViewHeaderView"];
-    }
-    return _collectionView;
-}
 
 /*
 #pragma mark - Navigation
@@ -219,21 +233,21 @@ UICollectionViewDataSource>{
     return cell;
 }
 
-- (CGSize)collectionView:(UICollectionView *)collectionView
-                  layout:(UICollectionViewLayout *)collectionViewLayout
-  sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
-    NSArray *array = [self.allList objectForKey:[self.categates objectAtIndex:indexPath.section]];
-    NSString *str = [array objectAtIndex:indexPath.item];
-   
-    /* 根据每一项的字符串确定每一项的size */
-    NSDictionary *dict = @{NSFontAttributeName:[UIFont systemFontOfSize:18]};
-    
-    
-    CGSize size        = [str boundingRectWithSize:CGSizeMake(collectionView.frame.size.width, 1000) options:NSStringDrawingUsesFontLeading|NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingTruncatesLastVisibleLine attributes:dict context:nil].size;
-    size.height        = 40;
-    size.width         += 10;
-    return size;
-}
+//- (CGSize)collectionView:(UICollectionView *)collectionView
+//                  layout:(UICollectionViewLayout *)collectionViewLayout
+//  sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
+//    NSArray *array = [self.allList objectForKey:[self.categates objectAtIndex:indexPath.section]];
+//    NSString *str = [array objectAtIndex:indexPath.item];
+//
+//    /* 根据每一项的字符串确定每一项的size */
+//    NSDictionary *dict = @{NSFontAttributeName:[UIFont systemFontOfSize:14]};
+//
+//    CGSize size        = [str boundingRectWithSize:CGSizeMake(collectionView.frame.size.width, 1000) options:NSStringDrawingUsesFontLeading|NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingTruncatesLastVisibleLine attributes:dict context:nil].size;
+//    size.height        = 40;
+//    size.width         += 10;
+//    return size;
+//}
+
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     NSArray *array = [self.allList objectForKey:[self.categates objectAtIndex:indexPath.section]];

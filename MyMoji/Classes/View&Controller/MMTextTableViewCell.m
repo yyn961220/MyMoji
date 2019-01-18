@@ -50,8 +50,8 @@
 - (void)layoutSubviews{
     [super layoutSubviews];
     CGSize size = self.contentView.bounds.size;
-    self.name.frame = CGRectMake(10, 10, size.width - 10, size.height);
-    self.yellowView.frame = CGRectMake(0, 5, 5, size.height - 10);
+    self.name.frame = CGRectMake(10, 0, size.width - 10, size.height);
+    self.yellowView.frame = CGRectMake(0, 5, 5, size.height);
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

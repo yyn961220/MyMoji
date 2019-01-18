@@ -41,11 +41,10 @@ UICollectionViewDataSource>{
     _isScrollDown = YES;
     // Do any additional setup after loading the view.
     
-//    self.edgesForExtendedLayout = UIRectEdgeNone;
-//    self.extendedLayoutIncludesOpaqueBars = NO;
-//    self.automaticallyAdjustsScrollViewInsets = NO;
-    
     self.view.backgroundColor = [UIColor whiteColor];
+    
+    
+    
     
     [self.view addSubview:self.tableView];
     [self.view addSubview:self.collectionView];
@@ -107,7 +106,7 @@ UICollectionViewDataSource>{
         _tableView.delegate = self;
         _tableView.dataSource = self;
         _tableView.tableFooterView = [UIView new];
-        _tableView.rowHeight = 44;
+        _tableView.rowHeight = 30;
         _tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
         _tableView.showsVerticalScrollIndicator = NO;
         _tableView.separatorColor = [UIColor clearColor];
@@ -123,6 +122,7 @@ UICollectionViewDataSource>{
         _flowLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
         _flowLayout.minimumInteritemSpacing = 2;
         _flowLayout.minimumLineSpacing = 2;
+        _flowLayout.sectionHeadersPinToVisibleBounds = YES;
     }
     return _flowLayout;
 }

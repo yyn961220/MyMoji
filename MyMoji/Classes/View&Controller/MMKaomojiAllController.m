@@ -112,7 +112,7 @@ UICollectionViewDataSource>{
     }
     
     if (!_collectionView){
-        MMTextListFlowLayout *flowLayout = [[MMTextListFlowLayout alloc] initWithArray:self.cellSizes edgeInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
+        MMTextListFlowLayout *flowLayout = [[MMTextListFlowLayout alloc] initWithItemSizeArray:self.cellSizes];
         flowLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
         flowLayout.minimumInteritemSpacing = 2;
         flowLayout.minimumLineSpacing = 2;

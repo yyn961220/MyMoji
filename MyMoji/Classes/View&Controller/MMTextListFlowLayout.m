@@ -8,33 +8,19 @@
 
 #import "MMTextListFlowLayout.h"
 
+static float kItemSpace = 3.f;
+
 @interface MMTextListFlowLayout ()
 @property (nonatomic,strong) NSMutableArray *attributesArray;
-
-@property (nonatomic,assign) CGFloat maxY;
-
-@property (nonatomic,assign) CGFloat left;
-
-@property (nonatomic,assign) CGFloat right;
-
-@property (nonatomic,assign) CGFloat top;
-
-@property (nonatomic,assign) CGFloat between;
-
 @end
 
 @implementation MMTextListFlowLayout
 
 
--(instancetype)initWithArray:(NSMutableArray*)widthArray edgeInsets:(UIEdgeInsets)insets{
+-(instancetype)initWithItemSizeArray:(NSArray<NSArray *> *)widthArray{
     if (self = [super init]) {
-        self.widthArray = widthArray;
-        NSLog(@"==***==%p",self.widthArray);
-        
-        self.left = insets.left;
-        self.right = insets.right;
-        self.top = insets.top;
-        self.between = insets.bottom;
+        self.itemSizeArray = widthArray;
+        NSLog(@"==***==%p",self.itemSizeArray);
     }
     return self;
 }
@@ -56,39 +42,126 @@
     ///1.首先被调用
     
     [self.attributesArray removeAllObjects];
-  /*
-    NSInteger itemCount = [self.collectionView numberOfItemsInSection:0];
-    
-    for (int i =0; i<itemCount; i++) {
-        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:0];
-        UICollectionViewLayoutAttributes *attributes = [self layoutAttributesForItemAtIndexPath:indexPath];
-        [self.attributesArray addObject:attributes];
-        if (i==self.widthArray.count-1) {
-            [self loadOldAttributes:attributes.frame];
-        }
-    }
-   */
-    
-    for (int section = 0; section < self.widthArray.count; section++) {
-        NSArray *rows = self.widthArray[section];
+
+    for (int section = 0; section < self.itemSizeArray.count; section++) {
+        NSArray *rows = self.itemSizeArray[section];
+        
+        NSMutableArray *rowsAttributes = [NSMutableArray arrayWithCapacity:rows.count];
+         [self.attributesArray addObject:rowsAttributes];
+        
         for (int row = 0; row < rows.count ; row++) {
             NSIndexPath *indexPath = [NSIndexPath indexPathForRow:row inSection:section];
-            UICollectionViewLayoutAttributes *attributes = [self layoutAttributesForItemAtIndexPath:indexPath];
-            [self.attributesArray addObject:attributes];
-            if (row == rows.count-1) {
-                [self loadOldAttributes:attributes.frame];
+            UICollectionViewLayoutAttributes *attributes = [self caculateLayoutAttributesForItemAtIndexPath:indexPath];
+            [rowsAttributes addObject:attributes];
+        }
+        
+       
+    }
+    NSLog(@"self.attributesArray:%@",self.attributesArray);
+    
+}
+
+- (UICollectionViewLayoutAttributes *)caculateLayoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath{
+    UICollectionViewLayoutAttributes *attributs = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:indexPath];
+    NSValue *theSizeValue =[self.itemSizeArray[indexPath.section] objectAtIndex:indexPath.item];
+    CGSize theSize = [theSizeValue CGSizeValue];
+    
+    CGFloat width = theSize.width ;
+    CGFloat height = theSize.height;
+    
+    
+    CGFloat collectionWidth = self.collectionView.frame.size.width  ;
+    
+    CGFloat oneSpace = (collectionWidth - kItemSpace)/3.0 - kItemSpace ;
+    CGFloat twoSpace = oneSpace * 2 + kItemSpace ;
+    CGFloat threeSpace = twoSpace +oneSpace + kItemSpace;
+   
+    CGFloat yOffset = 0 ;
+    CGFloat xOffset = kItemSpace;
+    
+     CGRect currentFrame = CGRectZero;
+    
+    if (indexPath.item == 0) {
+        if (indexPath.section == 0) {
+             yOffset = 30;
+        }else{
+            //
+             UICollectionViewLayoutAttributes *lastSectionlastAttributs = [self.attributesArray[indexPath.section - 1] objectAtIndex:[self.itemSizeArray[indexPath.section -1] count]-1];
+            //换一行
+            yOffset = CGRectGetMaxY(lastSectionlastAttributs.frame) +30 ;
+        }
+       
+        //第一个cell
+        if (width > twoSpace ){
+            width = threeSpace ;
+        }else if (width > oneSpace){
+            width = twoSpace ;
+        }else{
+            width = oneSpace;
+        }
+    }else if(indexPath.item <  (self.itemSizeArray[indexPath.section].count)){
+        // 从第二个cell开始 参考前一个布局的位置
+        UICollectionViewLayoutAttributes *lastAttributs = [self.attributesArray[indexPath.section] objectAtIndex:indexPath.item - 1];
+        
+        CGRect lastFrame = lastAttributs.frame;
+        
+        CGFloat leftWidth = collectionWidth - CGRectGetMaxX(lastFrame) - 2* kItemSpace;
+        
+        if (leftWidth > oneSpace){
+            //剩下的空间可以摆放当前item
+            
+            if(width < oneSpace){
+                width = oneSpace;
+                yOffset = lastFrame.origin.y ;
+                xOffset = CGRectGetMaxX(lastFrame) + kItemSpace;
+            }else if (width < twoSpace){
+                width =twoSpace;
+                yOffset = lastFrame.origin.y ;
+                xOffset = CGRectGetMaxX(lastFrame) + kItemSpace;
+            }else{
+                //换一行
+                yOffset = CGRectGetMaxY(lastFrame) + self.minimumLineSpacing ;
+                width = threeSpace ;
+                xOffset =  kItemSpace;
+            }
+        }else if ((leftWidth > kItemSpace)&&(width < oneSpace)){
+                width = oneSpace;
+                yOffset = lastFrame.origin.y ;
+                xOffset = CGRectGetMaxX(lastFrame) + kItemSpace;
+        }else{
+            //换一行
+            yOffset = CGRectGetMaxY(lastFrame) + self.minimumLineSpacing ;
+            xOffset =  kItemSpace;
+            
+            if(width < oneSpace){
+                width = oneSpace;
+            }else if (width < twoSpace){
+                width =twoSpace;
+            }else{
+                width = threeSpace ;
             }
         }
     }
+    
+    currentFrame.origin.x = xOffset;
+    currentFrame.origin.y =  yOffset;
+    currentFrame.size.width = width;
+    currentFrame.size.height = height;
+    attributs.frame = currentFrame;
+    
+    
+    return attributs;
 }
 
 
-///返回collectionView的内容的尺寸
--(CGSize)collectionViewContentSize{
-    ///2.其次被调用(layoutAttributesForElementsInRect 调用后会在此调用此方法)
-    NSLog(@"---%f------2",self.maxY);
-    return CGSizeMake(self.collectionView.bounds.size.width, self.maxY);
-}
+
+
+/////返回collectionView的内容的尺寸
+//-(CGSize)collectionViewContentSize{
+//    ///2.其次被调用(layoutAttributesForElementsInRect 调用后会在此调用此方法)
+//    NSLog(@"---%f------2",self.maxY);
+//    return CGSizeMake(self.collectionView.bounds.size.width, self.maxY);
+//}
 
 ///返回rect中的所有的元素的布局属性,返回的是包含UICollectionViewLayoutAttributes的NSArray
 ///UICollectionViewLayoutAttributes可以是cell，追加视图或装饰视图的信息，通过不同的UICollectionViewLayoutAttributes初始化方法可以得到不同类型的
@@ -98,32 +171,51 @@
 -(NSArray *)layoutAttributesForElementsInRect:(CGRect)rect{
     ///3.被调用
     NSLog(@"---------3");
-    
+
+    NSMutableArray *all = [NSMutableArray array];
     NSArray *array = [super layoutAttributesForElementsInRect:rect];
-    
+    [all addObjectsFromArray:array];
+
     for (UICollectionViewLayoutAttributes *attributes in array) {
         if (attributes.representedElementCategory == UICollectionElementCategoryCell) {
+            [all removeObject:attributes];
+           
+//            for (UICollectionViewLayoutAttributes *theAttributes in self.attributesArray) {
+//                if (theAttributes.indexPath.section == attributes.indexPath.section && theAttributes.indexPath.item == attributes.indexPath.item) {
+//
+//                    [all addObject:theAttributes];
+//                    break ;
+//                }
+//            }
         }
     }
-    return self.attributesArray;
+    
+    for (NSArray *arr in self.attributesArray) {
+        [all addObjectsFromArray:arr];
+    }
+    return all;
 }
 
 
 ///返回对应于indexPath的位置的cell的布局属性,返回指定indexPath的item的布局信息。子类必须重载该方法,该方法只能为cell提供布局信息，不能为补充视图和装饰视图提供。
 -(UICollectionViewLayoutAttributes*)layoutAttributesForItemAtIndexPath:(NSIndexPath*)indexPath{
+    
+    return [self.attributesArray[indexPath.section] objectAtIndex:indexPath.item];
+    
+    /*
     UICollectionViewLayoutAttributes *attributs = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:indexPath];
     
 //    NSNumber *currentWidthNumber = self.widthArray[indexPath.row];
 //    CGFloat width = currentWidthNumber.floatValue;
     
-    NSValue *theSizeValue =[self.widthArray[indexPath.section] objectAtIndex:indexPath.row];
+    NSValue *theSizeValue =[self.widthArray[indexPath.section] objectAtIndex:indexPath.item];
     CGSize theSize = [theSizeValue CGSizeValue];
     CGFloat width = theSize.width ;
     
     ///没有换行所以超出部分不显示（不写下面的代码也不会报错，不知道为啥）
-    if (width>[UIScreen mainScreen].bounds.size.width-(self.left+self.right)) {
-        width = [UIScreen mainScreen].bounds.size.width - (self.left+self.right);
-    }
+//    if (width>[UIScreen mainScreen].bounds.size.width-(self.left+self.right)) {
+//        width = [UIScreen mainScreen].bounds.size.width - (self.left+self.right);
+//    }
     
     CGFloat height = 30;
     CGRect currentFrame = CGRectZero;
@@ -155,7 +247,7 @@
                     for (UICollectionViewLayoutAttributes *subAttributs in self.attributesArray) {
                         if (subAttributs.frame.origin.y==lastFrame.origin.y) {
                             [sameYArray addObject:subAttributs];
-                        }
+                        }+ 
                     }
                     
                     ///判断出上一row还剩下多少宽度
@@ -197,7 +289,7 @@
             }
         }else{
             currentFrame.origin.x = self.left;
-            currentFrame.origin.y = self.top;
+            currentFrame.origin.y = self.top+30;
             currentFrame.size.width = width;
             currentFrame.size.height = height;
             attributs.frame = currentFrame;
@@ -210,21 +302,12 @@
     NSLog(@"%f===%f===%f===%f",attributs.frame.origin.x,attributs.frame.origin.y,attributs.frame.size.width,attributs.frame.size.height);
     
     return attributs;
-}
-
-///返回对应于indexPath的位置的追加视图的布局属性，如果没有追加视图可不重载
--(UICollectionViewLayoutAttributes *)layoutAttributesForSupplementaryViewOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath{
-    return [super layoutAttributesForSupplementaryViewOfKind:kind atIndexPath:indexPath];
-}
-
-///返回对应于indexPath的位置的装饰视图的布局属性，如果没有装饰视图可不重载
--(UICollectionViewLayoutAttributes *)layoutAttributesForDecorationViewOfKind:(NSString*)decorationViewKind atIndexPath:(NSIndexPath*)indexPath{
-    return [super layoutAttributesForDecorationViewOfKind:decorationViewKind atIndexPath:indexPath];
+     */
 }
 
 ///当边界发生改变时，是否应该刷新布局。如果YES则在边界变化（一般是scroll到其他地方）时，将重新计算需要的布局信息。
 -(BOOL)shouldInvalidateLayoutForBoundsChange:(CGRect)newBounds{
-    return [super shouldInvalidateLayoutForBoundsChange:newBounds];
+    return YES;
 }
 
 
@@ -233,7 +316,7 @@
  */
 
 
-
+/*
 -(void)loadOldAttributes:(CGRect)lastFrame{
     ///将和上一个item在同一个row的item的放在同一个数组
     NSMutableArray *sameYArray = [NSMutableArray array];
@@ -267,7 +350,7 @@
         sameYAttributs.frame = sameYAttributsFrame;
     }
 }
-
+*/
 -(NSMutableArray*)attributesArray{
     if (!_attributesArray) {
         _attributesArray = [NSMutableArray array];

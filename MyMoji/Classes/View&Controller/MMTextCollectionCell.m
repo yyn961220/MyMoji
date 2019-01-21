@@ -25,6 +25,9 @@
         label.layer.borderColor = [UIColor lightGrayColor].CGColor;
         label.contentMode = UIViewContentModeCenter;
         label.textAlignment = NSTextAlignmentCenter;
+        
+        label.font = [UIFont systemFontOfSize:THE_COLLECTION_ITEM_FONT_SIZE];
+        
         [self.contentView addSubview:label];
         self.textLabel = label;
         

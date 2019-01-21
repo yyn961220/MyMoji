@@ -18,6 +18,7 @@
 
 static float kLeftTableViewWidth = 80.f;
 static float kCollectionViewMargin = 3.f;
+static float kCollectionItemSpace = 3.f;
 
 @interface MMKaomojiAllController ()<UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegateFlowLayout,
 UICollectionViewDataSource>{
@@ -75,10 +76,16 @@ UICollectionViewDataSource>{
     [self.allList addEntriesFromDictionary:allList];
     
     /* 根据每一项的字符串确定每一项的size */
-    NSDictionary *dict = @{NSFontAttributeName:[UIFont systemFontOfSize:14]};
+    NSDictionary *dict = @{NSFontAttributeName:[UIFont systemFontOfSize:THE_COLLECTION_ITEM_FONT_SIZE]};
     
     NSMutableArray *widthsArray = [NSMutableArray array];
     NSLog(@"begain get widthsArray");
+    
+    
+    CGFloat collectionWidth = SCREEN_WIDTH - kLeftTableViewWidth - 2 * kCollectionViewMargin ;
+    CGFloat oneSpace = (collectionWidth - 2*kCollectionItemSpace)/3.0  ;
+    CGFloat twoSpace = oneSpace * 2 + kCollectionItemSpace ;
+    CGFloat threeSpace = twoSpace +oneSpace + kCollectionItemSpace;
     
     for (int i = 0; i < categates.count; i++) {
         NSMutableArray *sectionArray = [NSMutableArray array];
@@ -87,6 +94,15 @@ UICollectionViewDataSource>{
             CGSize size        = [string boundingRectWithSize:CGSizeMake(maxWidth, 1000) options:NSStringDrawingUsesFontLeading|NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingTruncatesLastVisibleLine attributes:dict context:nil].size;
             size.height        = 40;
             size.width         += 10;
+            
+            if (size.width >twoSpace) {
+                size.width = threeSpace ;
+            }else if (size.width > oneSpace){
+                size.width = twoSpace;
+            }else{
+                size.width = oneSpace;
+            }
+            
             [sectionArray addObject:[NSValue valueWithCGSize:size]];
         }
         
@@ -112,11 +128,13 @@ UICollectionViewDataSource>{
     }
     
     if (!_collectionView){
-        MMTextListFlowLayout *flowLayout = [[MMTextListFlowLayout alloc] initWithItemSizeArray:self.cellSizes];
+        MMTextListFlowLayout *flowLayout = [[MMTextListFlowLayout alloc] init];
+      
         flowLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
-        flowLayout.minimumInteritemSpacing = 2;
-        flowLayout.minimumLineSpacing = 2;
+        flowLayout.minimumInteritemSpacing = kCollectionItemSpace - 1.0f;
+        flowLayout.minimumLineSpacing =  kCollectionItemSpace - 1.0f;
         flowLayout.sectionHeadersPinToVisibleBounds = YES;
+        flowLayout.sectionInset = UIEdgeInsetsMake(kCollectionItemSpace, 0, kCollectionItemSpace, 0);
         
         _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(kCollectionViewMargin + kLeftTableViewWidth, kCollectionViewMargin, SCREEN_WIDTH - kLeftTableViewWidth - 2 * kCollectionViewMargin, SCREEN_HEIGHT - 2 * kCollectionViewMargin) collectionViewLayout:flowLayout];
         _collectionView.delegate = self;
@@ -192,17 +210,20 @@ UICollectionViewDataSource>{
     
 //     http://stackoverflow.com/questions/22100227/scroll-uicollectionview-to-section-header-view
 //     解决点击 TableView 后 CollectionView 的 Header 遮挡问题。
-    [self scrollToTopOfSection:_selectIndex animated:YES];
+//    [self scrollToTopOfSection:_selectIndex animated:YES];
     
     [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:_selectIndex] atScrollPosition:UICollectionViewScrollPositionTop animated:YES];
     [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:_selectIndex inSection:0]                          atScrollPosition:UITableViewScrollPositionTop animated:YES];
+    
+   
 }
 
 #pragma mark - 解决点击 TableView 后 CollectionView 的 Header 遮挡问题
 
 - (void)scrollToTopOfSection:(NSInteger)section animated:(BOOL)animated{
     CGRect headerRect = [self frameForHeaderForSection:section];
-    CGPoint topOfHeader = CGPointMake(0, headerRect.origin.y - _collectionView.contentInset.top);
+//    CGPoint topOfHeader = CGPointMake(0, headerRect.origin.y - _collectionView.contentInset.top);
+    CGPoint topOfHeader = CGPointMake(0, headerRect.origin.y - headerRect.size.height);
     [self.collectionView setContentOffset:topOfHeader animated:animated];
 }
 
@@ -233,20 +254,12 @@ UICollectionViewDataSource>{
     return cell;
 }
 
-//- (CGSize)collectionView:(UICollectionView *)collectionView
-//                  layout:(UICollectionViewLayout *)collectionViewLayout
-//  sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
-//    NSArray *array = [self.allList objectForKey:[self.categates objectAtIndex:indexPath.section]];
-//    NSString *str = [array objectAtIndex:indexPath.item];
-//
-//    /* 根据每一项的字符串确定每一项的size */
-//    NSDictionary *dict = @{NSFontAttributeName:[UIFont systemFontOfSize:14]};
-//
-//    CGSize size        = [str boundingRectWithSize:CGSizeMake(collectionView.frame.size.width, 1000) options:NSStringDrawingUsesFontLeading|NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingTruncatesLastVisibleLine attributes:dict context:nil].size;
-//    size.height        = 40;
-//    size.width         += 10;
-//    return size;
-//}
+- (CGSize)collectionView:(UICollectionView *)collectionView
+                  layout:(UICollectionViewLayout *)collectionViewLayout
+  sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
+    NSValue *value = [self.cellSizes[indexPath.section] objectAtIndex:indexPath.item];
+    return [value CGSizeValue];
+}
 
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
@@ -304,7 +317,7 @@ UICollectionViewDataSource>{
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section{
-    return CGSizeMake(SCREEN_WIDTH, 30);
+    return CGSizeMake(collectionView.frame.size.width, THE_COLLECTION_HEADER_HEIGHT);
 }
 
 // CollectionView分区标题即将展示

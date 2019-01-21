@@ -18,7 +18,7 @@
 
 static float kLeftTableViewWidth = 80.f;
 static float kCollectionViewMargin = 3.f;
-static float kCollectionItemSpace = 3.f;
+static float kCollectionItemSpace = THE_COLLECTION_ITEM_SPACE;
 
 @interface MMKaomojiAllController ()<UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegateFlowLayout,
 UICollectionViewDataSource>{
@@ -260,7 +260,6 @@ UICollectionViewDataSource>{
     NSValue *value = [self.cellSizes[indexPath.section] objectAtIndex:indexPath.item];
     return [value CGSizeValue];
 }
-
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     NSArray *array = [self.allList objectForKey:[self.categates objectAtIndex:indexPath.section]];

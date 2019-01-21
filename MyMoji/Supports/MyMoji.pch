@@ -18,5 +18,6 @@
 
 #define THE_COLLECTION_HEADER_HEIGHT 30.0f
 #define THE_COLLECTION_ITEM_FONT_SIZE 14.0f
+#define THE_COLLECTION_ITEM_SPACE  3.0f
 
 #endif /* MyMoji_pch */

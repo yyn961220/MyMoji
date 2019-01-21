@@ -22,9 +22,7 @@
 		83A5F89621DE15A500344B91 /* MyMojiTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A5F89521DE15A500344B91 /* MyMojiTests.m */; };
 		83A5F8A121DE15A500344B91 /* MyMojiUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A5F8A021DE15A500344B91 /* MyMojiUITests.m */; };
 		83A5F8B221DEEBBE00344B91 /* TestKaomejiList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 83A5F8B121DEEBBE00344B91 /* TestKaomejiList.plist */; };
-		83A5F8B721DEFCAB00344B91 /* MMKaomojiListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A5F8B621DEFCAB00344B91 /* MMKaomojiListController.m */; };
 		83A5F8BA21DEFD3500344B91 /* MMTextListFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A5F8B921DEFD3500344B91 /* MMTextListFlowLayout.m */; };
-		83A5F8E621DF487600344B91 /* MMTextListCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A5F8E521DF487600344B91 /* MMTextListCollectionView.m */; };
 		83A5F8E921DF540500344B91 /* MMTextCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A5F8E821DF540500344B91 /* MMTextCollectionCell.m */; };
 		CFC9BAF6C21BDA82310C58CC /* libPods-MyMojiTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CCE5EF44A2C671095D3F099 /* libPods-MyMojiTests.a */; };
 		D1C05EB153625D1882856AE2 /* libPods-MyMojiUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DA06F6BF88588D663F50020D /* libPods-MyMojiUITests.a */; };
@@ -83,12 +81,8 @@
 		83A5F8A021DE15A500344B91 /* MyMojiUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyMojiUITests.m; sourceTree = "<group>"; };
 		83A5F8A221DE15A500344B91 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		83A5F8B121DEEBBE00344B91 /* TestKaomejiList.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = TestKaomejiList.plist; sourceTree = "<group>"; };
-		83A5F8B521DEFCAB00344B91 /* MMKaomojiListController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMKaomojiListController.h; sourceTree = "<group>"; };
-		83A5F8B621DEFCAB00344B91 /* MMKaomojiListController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMKaomojiListController.m; sourceTree = "<group>"; };
 		83A5F8B821DEFD3500344B91 /* MMTextListFlowLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMTextListFlowLayout.h; sourceTree = "<group>"; };
 		83A5F8B921DEFD3500344B91 /* MMTextListFlowLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMTextListFlowLayout.m; sourceTree = "<group>"; };
-		83A5F8E421DF487600344B91 /* MMTextListCollectionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMTextListCollectionView.h; sourceTree = "<group>"; };
-		83A5F8E521DF487600344B91 /* MMTextListCollectionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMTextListCollectionView.m; sourceTree = "<group>"; };
 		83A5F8E721DF540500344B91 /* MMTextCollectionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMTextCollectionCell.h; sourceTree = "<group>"; };
 		83A5F8E821DF540500344B91 /* MMTextCollectionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMTextCollectionCell.m; sourceTree = "<group>"; };
 		922C02BC2AE3ACDCFF39E732 /* Pods-MyMojiUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyMojiUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyMojiUITests/Pods-MyMojiUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -230,12 +224,8 @@
 		83A5F8B421DEFB6A00344B91 /* View&Controller */ = {
 			isa = PBXGroup;
 			children = (
-				83A5F8B521DEFCAB00344B91 /* MMKaomojiListController.h */,
-				83A5F8B621DEFCAB00344B91 /* MMKaomojiListController.m */,
 				8313916B21EED200001791FA /* MMKaomojiFavoriteController.h */,
 				8313916C21EED200001791FA /* MMKaomojiFavoriteController.m */,
-				83A5F8E421DF487600344B91 /* MMTextListCollectionView.h */,
-				83A5F8E521DF487600344B91 /* MMTextListCollectionView.m */,
 				8313917121EF02AA001791FA /* MMKaomojiAllController.h */,
 				8313917221EF02AA001791FA /* MMKaomojiAllController.m */,
 				83A5F8B821DEFD3500344B91 /* MMTextListFlowLayout.h */,
@@ -468,7 +458,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				83A5F8B721DEFCAB00344B91 /* MMKaomojiListController.m in Sources */,
 				83A5F8BA21DEFD3500344B91 /* MMTextListFlowLayout.m in Sources */,
 				8313917321EF02AA001791FA /* MMKaomojiAllController.m in Sources */,
 				83A5F8E921DF540500344B91 /* MMTextCollectionCell.m in Sources */,
@@ -477,7 +466,6 @@
 				8313916D21EED200001791FA /* MMKaomojiFavoriteController.m in Sources */,
 				83A5F87E21DE15A400344B91 /* AppDelegate.m in Sources */,
 				8313917021EF00F1001791FA /* MMTextHeaderView.m in Sources */,
-				83A5F8E621DF487600344B91 /* MMTextListCollectionView.m in Sources */,
 				8313916A21EE0822001791FA /* MMFavoriteManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -55,12 +55,13 @@ UICollectionViewDataSource>{
 
 - (void)loadData{
     //    // 加载数据
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"MyKaomojiList" ofType:@"json"];
+//    NSString *path = [[NSBundle mainBundle] pathForResource:@"MyKaomojiList" ofType:@"json"];
     //    NSDictionary *dictonary = [NSDictionary dictionaryWithContentsOfFile:path];
-    NSData *jsonData = [[NSData alloc] initWithContentsOfFile:path];
+//    NSData *jsonData = [[NSData alloc] initWithContentsOfFile:path];
     
+    NSDataAsset *jsonData = [[NSDataAsset alloc] initWithName:@"MyKaomojiList" bundle:[NSBundle mainBundle]];
     NSError *error = nil;
-    NSDictionary *dictonary = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:&error];
+    NSDictionary *dictonary = [NSJSONSerialization JSONObjectWithData:jsonData.data options:NSJSONReadingMutableContainers error:&error];
     if (dictonary == nil) {
         NSLog(@"error = %@",error);
         return;

@@ -46,6 +46,7 @@ UICollectionViewDataSource>{
     
     self.view.backgroundColor = [UIColor whiteColor];
     
+    [self updateTitleWithText:nil];
     
      [self loadData];
      [self initTableAndCollecionView];
@@ -172,9 +173,6 @@ UICollectionViewDataSource>{
 }
 
 -(void)handleLongPress:(UILongPressGestureRecognizer *)gestureRecognizer{
-//    if (gestureRecognizer.state != UIGestureRecognizerStateEnded) {
-//        return;
-//    }
     CGPoint p = [gestureRecognizer locationInView:self.collectionView];
     
     NSIndexPath *indexPath = [self.collectionView indexPathForItemAtPoint:p];
@@ -183,8 +181,13 @@ UICollectionViewDataSource>{
         return;
     }
     
-    MMTextCollectionCell* cell =  (MMTextCollectionCell *)[self.collectionView cellForItemAtIndexPath:indexPath];
+    UICollectionViewCell* cell =  (UICollectionViewCell *)[self.collectionView cellForItemAtIndexPath:indexPath];
     //         do stuff with the cell
+    
+    if (cell == nil) {
+        return;
+    }
+    
     if (gestureRecognizer.state != UIGestureRecognizerStateEnded) {
         [cell  setHighlighted:YES];
         return;
@@ -194,7 +197,15 @@ UICollectionViewDataSource>{
         
         NSArray *array = [self.allList objectForKey:[self.categates objectAtIndex:indexPath.section]];
         NSString *model = [array objectAtIndex:indexPath.item];
-        [self addToFavirateWithText:model];
+        [self addOrRemoveFromFavirateWithText:model];
+}
+
+- (void)updateTitleWithText:(NSString *)text{
+    NSString *title = text;
+    if (title.length == 0) {
+        title = @"My Kaomoji";
+    }
+    self.navigationItem.title = title ;
 }
 #pragma mark -- getters
 - (NSMutableArray *)categates{
@@ -300,35 +311,13 @@ UICollectionViewDataSource>{
     NSArray *array = [self.allList objectForKey:[self.categates objectAtIndex:indexPath.section]];
     NSString *model = [array objectAtIndex:indexPath.item];
     
-    
-    __weak typeof(self) weakSelf = self;
-    
-    SCLAlertView *alert = [[SCLAlertView alloc] init];
-    
-    [alert addButton:@"复制" actionBlock:^(void) {
-        [weakSelf copyWithText:model];
-    }];
-    
-    BOOL contains = [[MMFavoriteManager shareManager] containsItem:model];
-    NSString *favoriteButtonTitle = contains ? @"从收藏中移除":@"收藏";
-    if (contains) {
-        [alert addButton:favoriteButtonTitle actionBlock:^(void) {
-            [weakSelf removeFavirateWithText:model];
-        }];
-    }else{
-        [alert addButton:favoriteButtonTitle actionBlock:^(void) {
-            [weakSelf addToFavirateWithText:model];
-        }];
-    }
-    
-    
-    alert.showAnimationType = SCLAlertViewShowAnimationSlideInToCenter ;
-    
-    alert.shouldDismissOnTapOutside = YES;
-    
-    
-    [alert showTitle:weakSelf.parentViewController title:model subTitle:nil style:SCLAlertViewStyleWaiting  closeButtonTitle:@"取消" duration:0.0f];
-    
+    [self performSelector:@selector(nowDeselectItemAtIndexPath:) withObject:indexPath afterDelay:0.5f];
+   
+    [self addOrRemoveFromFavirateWithText:model];
+}
+
+- (void)nowDeselectItemAtIndexPath:(NSIndexPath *)indexPath{
+    [_collectionView deselectItemAtIndexPath:indexPath animated:YES];
 }
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView
@@ -396,18 +385,25 @@ UICollectionViewDataSource>{
     UIPasteboard *board = [UIPasteboard generalPasteboard];
     [board setString:text];
     
-    SCLAlertView *sucessAlert = [[SCLAlertView alloc] init];
+    NSString *title = [NSString stringWithFormat:@"%@已复制到粘贴板上",text] ;
+    [self updateTitleWithText:title];
     
-    sucessAlert.showAnimationType = SCLAlertViewShowAnimationSlideInToCenter;
-    sucessAlert.shouldDismissOnTapOutside = YES;
-    [sucessAlert showInfo:self.parentViewController title: [NSString stringWithFormat:@"%@已复制到粘贴板上",text] subTitle:@"请在其他应用里粘贴" closeButtonTitle:@"Done" duration:0.0];
+    [self performSelector:@selector(updateTitleWithText:) withObject:nil afterDelay:1.0f];
 }
 
-- (void)addToFavirateWithText:(NSString *)text{
-    [[MMFavoriteManager shareManager] addFavoriteItem:text] ;
+- (void)addOrRemoveFromFavirateWithText:(NSString *)text{
+    BOOL contains = [[MMFavoriteManager shareManager] containsItem:text];
+    NSString *favoriteButtonTitle = contains ? @"从收藏中移除":@"收藏";
+    if (contains) {
+         [[MMFavoriteManager shareManager] removeFavoriteItem:text] ;
+    }else{
+        [[MMFavoriteManager shareManager] addFavoriteItem:text] ;
+    }
+    
+    [self updateTitleWithText:favoriteButtonTitle];
+    
+    [self performSelector:@selector(updateTitleWithText:) withObject:nil afterDelay:1.0f];
 }
 
-- (void)removeFavirateWithText:(NSString *)text{
-    [[MMFavoriteManager shareManager] removeFavoriteItem:text] ;
-}
+
 @end

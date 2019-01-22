@@ -395,7 +395,8 @@ UICollectionViewDataSource>{
     UIPasteboard *board = [UIPasteboard generalPasteboard];
     [board setString:text];
     
-    NSString *title = [NSString stringWithFormat:@"%@已复制到粘贴板上",text] ;
+    NSString *title = [NSString stringWithFormat:@"已复制:%@",text] ;
+    
     [self updateTitleWithText:title];
     
     [self performSelector:@selector(updateTitleWithText:) withObject:nil afterDelay:1.0f];
@@ -403,7 +404,11 @@ UICollectionViewDataSource>{
 
 - (void)addOrRemoveFromFavirateWithText:(NSString *)text{
     BOOL contains = [[MMFavoriteManager shareManager] containsItem:text];
-    NSString *favoriteButtonTitle = contains ? @"从收藏中移除":@"收藏";
+    NSString *remove = [NSString stringWithFormat:@"移除收藏：%@",text];
+    NSString *add = [NSString stringWithFormat:@"已收藏：%@",text];
+    
+    NSString *favoriteButtonTitle = contains ? remove:add;
+    
     if (contains) {
          [[MMFavoriteManager shareManager] removeFavoriteItem:text] ;
     }else{

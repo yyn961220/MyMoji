@@ -31,6 +31,8 @@ UICollectionViewDataSource>{
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    
+    
     [self updateTitleWithText:nil];
     
     [self initTableAndCollecionView];
@@ -105,7 +107,7 @@ UICollectionViewDataSource>{
         }
     }
     
-    [self.collectionView reloadData];
+    [self.collectionView reloadSections:[NSIndexSet indexSetWithIndex:0]];
 }
 
 
@@ -138,9 +140,8 @@ UICollectionViewDataSource>{
     }
     
     [cell  performSelector:@selector(setHighlighted:) withObject:@(NO) afterDelay:0.2];
-    
-    NSArray *array = [self.dataItems objectAtIndex:indexPath.item];
-    NSString *model = [array objectAtIndex:indexPath.item];
+   
+    NSString *model = [self.dataItems objectAtIndex:indexPath.item];
     [self addOrRemoveFromFavirateWithText:model];
 }
 
@@ -199,7 +200,7 @@ UICollectionViewDataSource>{
     NSString *title = [NSString stringWithFormat:@"已复制:%@",text] ;
     [self updateTitleWithText:title];
     
-    [self performSelector:@selector(updateTitleWithText:) withObject:nil afterDelay:1.0f];
+    [self performSelector:@selector(updateTitleWithText:) withObject:nil afterDelay:THE_REMIND_INFOR_SHOU_TIME];
 }
 
 - (void)addOrRemoveFromFavirateWithText:(NSString *)text{
@@ -212,15 +213,15 @@ UICollectionViewDataSource>{
     
     if (contains) {
         [[MMFavoriteManager shareManager] removeFavoriteItem:text] ;
-        [self.collectionView reloadSections:[NSIndexSet indexSetWithIndex:0]];
         
+        [self updateDataIfNeed];
     }else{
         [[MMFavoriteManager shareManager] addFavoriteItem:text] ;
     }
     
     [self updateTitleWithText:favoriteButtonTitle];
     
-    [self performSelector:@selector(updateTitleWithText:) withObject:nil afterDelay:1.0f];
+    [self performSelector:@selector(updateTitleWithText:) withObject:nil afterDelay:THE_REMIND_INFOR_SHOU_TIME];
 }
 
 /*

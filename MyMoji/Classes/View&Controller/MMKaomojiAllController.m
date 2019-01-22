@@ -399,7 +399,7 @@ UICollectionViewDataSource>{
     
     [self updateTitleWithText:title];
     
-    [self performSelector:@selector(updateTitleWithText:) withObject:nil afterDelay:1.0f];
+    [self performSelector:@selector(updateTitleWithText:) withObject:nil afterDelay:THE_REMIND_INFOR_SHOU_TIME];
 }
 
 - (void)addOrRemoveFromFavirateWithText:(NSString *)text{
@@ -417,7 +417,7 @@ UICollectionViewDataSource>{
     
     [self updateTitleWithText:favoriteButtonTitle];
     
-    [self performSelector:@selector(updateTitleWithText:) withObject:nil afterDelay:1.0f];
+    [self performSelector:@selector(updateTitleWithText:) withObject:nil afterDelay:THE_REMIND_INFOR_SHOU_TIME];
 }
 
 

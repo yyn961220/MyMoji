@@ -105,28 +105,32 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="22b-Eu-bq8" kind="relationship" relationship="rootViewController" id="Ha0-iu-axz"/>
+                        <segue destination="OVA-H6-reN" kind="relationship" relationship="rootViewController" id="Yo1-b6-7AV"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4yJ-yU-fAx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1239" y="681"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="7Bt-Qc-Lu1">
+        <!--Kaomoji Setting Controller-->
+        <scene sceneID="yDP-FW-Nbg">
             <objects>
-                <viewController id="22b-Eu-bq8" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="abI-40-EW6">
+                <tableViewController id="OVA-H6-reN" customClass="MMKaomojiSettingController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="14y-kL-wnD">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="ikn-Dl-8RL"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="XFw-Xl-S3J"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6cs-af-CMk" sceneMemberID="firstResponder"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <sections/>
+                        <connections>
+                            <outlet property="dataSource" destination="OVA-H6-reN" id="HsW-DW-zwI"/>
+                            <outlet property="delegate" destination="OVA-H6-reN" id="CYh-Y9-Ui8"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="uaA-tB-ufw"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="At0-0J-zx1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-394" y="681"/>
+            <point key="canvasLocation" x="-412" y="673"/>
         </scene>
     </scenes>
     <resources>

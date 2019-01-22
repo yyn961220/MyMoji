@@ -22,6 +22,7 @@
 		83A5F8BA21DEFD3500344B91 /* MMTextListFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A5F8B921DEFD3500344B91 /* MMTextListFlowLayout.m */; };
 		83A5F8E921DF540500344B91 /* MMTextCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A5F8E821DF540500344B91 /* MMTextCollectionCell.m */; };
 		83C9B34721F6F87300CFC2F1 /* MyKaomojiList.json in Resources */ = {isa = PBXBuildFile; fileRef = 8313917821EF112E001791FA /* MyKaomojiList.json */; };
+		83C9B34A21F704B200CFC2F1 /* MMKaomojiSettingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C9B34921F704B200CFC2F1 /* MMKaomojiSettingController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,8 @@
 		83A5F8E721DF540500344B91 /* MMTextCollectionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMTextCollectionCell.h; sourceTree = "<group>"; };
 		83A5F8E821DF540500344B91 /* MMTextCollectionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMTextCollectionCell.m; sourceTree = "<group>"; };
 		83C9B34621F6C83000CFC2F1 /* test.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = test.json; sourceTree = "<group>"; };
+		83C9B34821F704B200CFC2F1 /* MMKaomojiSettingController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMKaomojiSettingController.h; sourceTree = "<group>"; };
+		83C9B34921F704B200CFC2F1 /* MMKaomojiSettingController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMKaomojiSettingController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -205,6 +208,8 @@
 				83A5F8E821DF540500344B91 /* MMTextCollectionCell.m */,
 				8313917521EF084C001791FA /* MMTextTableViewCell.h */,
 				8313917621EF084C001791FA /* MMTextTableViewCell.m */,
+				83C9B34821F704B200CFC2F1 /* MMKaomojiSettingController.h */,
+				83C9B34921F704B200CFC2F1 /* MMKaomojiSettingController.m */,
 			);
 			path = "View&Controller";
 			sourceTree = "<group>";
@@ -345,6 +350,7 @@
 				83A5F8E921DF540500344B91 /* MMTextCollectionCell.m in Sources */,
 				83A5F88C21DE15A500344B91 /* main.m in Sources */,
 				8313917721EF084C001791FA /* MMTextTableViewCell.m in Sources */,
+				83C9B34A21F704B200CFC2F1 /* MMKaomojiSettingController.m in Sources */,
 				8313916D21EED200001791FA /* MMKaomojiFavoriteController.m in Sources */,
 				83A5F87E21DE15A400344B91 /* AppDelegate.m in Sources */,
 				8313917021EF00F1001791FA /* MMTextHeaderView.m in Sources */,

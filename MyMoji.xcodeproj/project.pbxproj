@@ -21,6 +21,7 @@
 		83A5F8A121DE15A500344B91 /* MyMojiUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A5F8A021DE15A500344B91 /* MyMojiUITests.m */; };
 		83A5F8BA21DEFD3500344B91 /* MMTextListFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A5F8B921DEFD3500344B91 /* MMTextListFlowLayout.m */; };
 		83A5F8E921DF540500344B91 /* MMTextCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A5F8E821DF540500344B91 /* MMTextCollectionCell.m */; };
+		83C9B34721F6F87300CFC2F1 /* MyKaomojiList.json in Resources */ = {isa = PBXBuildFile; fileRef = 8313917821EF112E001791FA /* MyKaomojiList.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 		83A5F8B921DEFD3500344B91 /* MMTextListFlowLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMTextListFlowLayout.m; sourceTree = "<group>"; };
 		83A5F8E721DF540500344B91 /* MMTextCollectionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMTextCollectionCell.h; sourceTree = "<group>"; };
 		83A5F8E821DF540500344B91 /* MMTextCollectionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMTextCollectionCell.m; sourceTree = "<group>"; };
+		83C9B34621F6C83000CFC2F1 /* test.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = test.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +166,7 @@
 				83A5F88521DE15A500344B91 /* Assets.xcassets */,
 				83A5F88721DE15A500344B91 /* LaunchScreen.storyboard */,
 				8313917821EF112E001791FA /* MyKaomojiList.json */,
+				83C9B34621F6C83000CFC2F1 /* test.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -311,6 +314,7 @@
 			files = (
 				83A5F88921DE15A500344B91 /* LaunchScreen.storyboard in Resources */,
 				83A5F88621DE15A500344B91 /* Assets.xcassets in Resources */,
+				83C9B34721F6F87300CFC2F1 /* MyKaomojiList.json in Resources */,
 				83A5F88421DE15A400344B91 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

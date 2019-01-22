@@ -24,14 +24,14 @@
     {
         self.selectionStyle = UITableViewCellSelectionStyleNone;
         
-        self.name = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, 60, 40)];
+        self.name = [[UILabel alloc] initWithFrame:CGRectMake(5, 10, 60, 40)];
         self.name.numberOfLines = 0;
         self.name.font = [UIFont systemFontOfSize:15];
         self.name.textColor = rgba(130, 130, 130, 1);
         self.name.highlightedTextColor = defaultColor;
         
         self.name.contentMode = UIViewContentModeCenter;
-        self.name.textAlignment = NSTextAlignmentLeft;
+        self.name.textAlignment = NSTextAlignmentCenter;
         
         [self.contentView addSubview:self.name];
         
@@ -50,8 +50,8 @@
 - (void)layoutSubviews{
     [super layoutSubviews];
     CGSize size = self.contentView.bounds.size;
-    self.name.frame = CGRectMake(10, 0, size.width - 10, size.height);
-    self.yellowView.frame = CGRectMake(0, 5, 5, size.height);
+    self.name.frame = CGRectMake(5, 0, size.width - 10, size.height);
+    self.yellowView.frame = CGRectMake(0, 0, 5, size.height);
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

@@ -16,7 +16,7 @@
 //#import "SCLAlertView.h"
 #import "MMFavoriteManager.h"
 
-static float kLeftTableViewWidth = 80.f;
+static float kLeftTableViewWidth = 50.0f;
 static float kCollectionViewMargin = 3.f;
 static float kCollectionItemSpace = THE_COLLECTION_ITEM_SPACE;
 
@@ -29,6 +29,9 @@ UICollectionViewDataSource>{
 @property (nonatomic, strong) UICollectionView *collectionView;
 
 @property (nonatomic, strong) NSMutableArray *categates;
+
+@property (nonatomic, strong) NSDictionary *categateIcons;
+
 @property (nonatomic, strong) NSMutableDictionary *allList;
 @property (nonatomic, strong) NSMutableArray *cellSizes ;
 
@@ -54,14 +57,14 @@ UICollectionViewDataSource>{
 }
 
 - (void)loadData{
-    //    // 加载数据
-//    NSString *path = [[NSBundle mainBundle] pathForResource:@"MyKaomojiList" ofType:@"json"];
-    //    NSDictionary *dictonary = [NSDictionary dictionaryWithContentsOfFile:path];
-//    NSData *jsonData = [[NSData alloc] initWithContentsOfFile:path];
+        // 加载数据
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"MyKaomojiList" ofType:@"json"];
+  // //        NSDictionary *dictonary = [NSDictionary dictionaryWithContentsOfFile:path];
+    NSData *jsonData = [[NSData alloc] initWithContentsOfFile:path];
     
-    NSDataAsset *jsonData = [[NSDataAsset alloc] initWithName:@"MyKaomojiList" bundle:[NSBundle mainBundle]];
+//    NSData *jsonData = [[NSDataAsset alloc] initWithName:@"MyKaomojiList" bundle:[NSBundle mainBundle]].data;
     NSError *error = nil;
-    NSDictionary *dictonary = [NSJSONSerialization JSONObjectWithData:jsonData.data options:NSJSONReadingMutableContainers error:&error];
+    NSDictionary *dictonary = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:&error];
     if (dictonary == nil) {
         NSLog(@"error = %@",error);
         return;
@@ -71,11 +74,14 @@ UICollectionViewDataSource>{
     NSArray *categates = [dictonary valueForKey:@"Categates"];
     NSDictionary *allList = [dictonary valueForKey:@"AllList"];
     
+    NSDictionary *allEmojiIcons = [dictonary valueForKey:@"CategateEMojis"];
+    
     [self.categates removeAllObjects];
     [self.allList removeAllObjects];
     
     [self.categates addObjectsFromArray:categates];
     [self.allList addEntriesFromDictionary:allList];
+    self.categateIcons = [NSDictionary dictionaryWithDictionary:allEmojiIcons];
     
     /* 根据每一项的字符串确定每一项的size */
     NSDictionary *dict = @{NSFontAttributeName:[UIFont systemFontOfSize:THE_COLLECTION_ITEM_FONT_SIZE]};
@@ -121,7 +127,7 @@ UICollectionViewDataSource>{
         _tableView.delegate = self;
         _tableView.dataSource = self;
         _tableView.tableFooterView = [UIView new];
-        _tableView.rowHeight = 30;
+        _tableView.rowHeight = 35;
         _tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
         _tableView.showsVerticalScrollIndicator = NO;
         _tableView.separatorColor = [UIColor clearColor];
@@ -225,7 +231,6 @@ UICollectionViewDataSource>{
     return _allList;
 }
 
-
 /*
 #pragma mark - Navigation
 
@@ -248,7 +253,9 @@ UICollectionViewDataSource>{
     }
     
     NSString *model = self.categates[indexPath.row];
-    cell.name.text = model;
+    NSString *icon = [self.categateIcons valueForKey:model];
+    
+    cell.name.text = icon;
     return cell;
 }
 
@@ -334,7 +341,9 @@ UICollectionViewDataSource>{
                                                                                forIndexPath:indexPath];
     if ([kind isEqualToString:UICollectionElementKindSectionHeader])
     {
-        NSString *model = self.categates[indexPath.section];
+        NSString *categate = self.categates[indexPath.section];
+        NSString *icon = [self.categateIcons objectForKey:categate];
+        NSString *model = [NSString stringWithFormat:@"%@- %@",icon,categate];
         view.title.text = model;
     }
     return view;

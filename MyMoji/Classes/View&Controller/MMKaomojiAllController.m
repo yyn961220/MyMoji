@@ -13,7 +13,7 @@
 #import "MMTextCollectionCell.h"
 #import "MMTextHeaderView.h"
 
-#import "SCLAlertView.h"
+//#import "SCLAlertView.h"
 #import "MMFavoriteManager.h"
 
 static float kLeftTableViewWidth = 80.f;
@@ -313,7 +313,7 @@ UICollectionViewDataSource>{
     
     [self performSelector:@selector(nowDeselectItemAtIndexPath:) withObject:indexPath afterDelay:0.5f];
    
-    [self addOrRemoveFromFavirateWithText:model];
+    [self copyWithText:model];
 }
 
 - (void)nowDeselectItemAtIndexPath:(NSIndexPath *)indexPath{

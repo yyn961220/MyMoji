@@ -13,7 +13,7 @@
 
 #import "MMTextCollectionCell.h"
 
-#import "SCLAlertView.h"
+//#import "SCLAlertView.h"
 
 @interface MMKaomojiFavoriteController ()<UICollectionViewDelegateFlowLayout,
 UICollectionViewDataSource>{
@@ -30,6 +30,9 @@ UICollectionViewDataSource>{
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    [self updateTitleWithText:nil];
+    
     [self initTableAndCollecionView];
     
     [self updateDataIfNeed];
@@ -54,6 +57,13 @@ UICollectionViewDataSource>{
         //注册cell
         [_collectionView registerClass:[MMTextCollectionCell class] forCellWithReuseIdentifier:kMMTextCollectionCellIdentifier];
     
+        UILongPressGestureRecognizer *lpgr
+        = [[UILongPressGestureRecognizer alloc]
+           initWithTarget:self action:@selector(handleLongPress:)];
+        //        lpgr.delegate = self;
+        lpgr.delaysTouchesBegan = YES;
+        [_collectionView addGestureRecognizer:lpgr];
+        
         
         
         [self.view addSubview:_collectionView];
@@ -105,6 +115,42 @@ UICollectionViewDataSource>{
     }
     return _itemSizes;
 }
+
+-(void)handleLongPress:(UILongPressGestureRecognizer *)gestureRecognizer{
+    CGPoint p = [gestureRecognizer locationInView:self.collectionView];
+    
+    NSIndexPath *indexPath = [self.collectionView indexPathForItemAtPoint:p];
+    
+    if (indexPath == nil) {
+        return;
+    }
+    
+    UICollectionViewCell* cell =  (UICollectionViewCell *)[self.collectionView cellForItemAtIndexPath:indexPath];
+    //         do stuff with the cell
+    
+    if (cell == nil) {
+        return;
+    }
+    
+    if (gestureRecognizer.state != UIGestureRecognizerStateEnded) {
+        [cell  setHighlighted:YES];
+        return;
+    }
+    
+    [cell  performSelector:@selector(setHighlighted:) withObject:@(NO) afterDelay:0.2];
+    
+    NSArray *array = [self.dataItems objectAtIndex:indexPath.item];
+    NSString *model = [array objectAtIndex:indexPath.item];
+    [self addOrRemoveFromFavirateWithText:model];
+}
+
+- (void)updateTitleWithText:(NSString *)text{
+    NSString *title = text;
+    if (title.length == 0) {
+        title = @"My Favorite";
+    }
+    self.navigationItem.title = title ;
+}
 #pragma mark - UICollectionView DataSource Delegate
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
@@ -133,35 +179,14 @@ UICollectionViewDataSource>{
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     NSString *model = [self.dataItems objectAtIndex:indexPath.item];
+    [self performSelector:@selector(nowDeselectItemAtIndexPath:) withObject:indexPath afterDelay:0.5f];
+    
+    [self copyWithText:model];
+   
+}
 
-    __weak typeof(self) weakSelf = self;
-    
-    SCLAlertView *alert = [[SCLAlertView alloc] init];
-    
-    [alert addButton:@"复制" actionBlock:^(void) {
-        [weakSelf copyWithText:model];
-    }];
-    
-    BOOL contains = [[MMFavoriteManager shareManager] containsItem:model];
-    NSString *favoriteButtonTitle = contains ? @"从收藏中移除":@"收藏";
-    if (contains) {
-        [alert addButton:favoriteButtonTitle actionBlock:^(void) {
-            [weakSelf removeFavirateWithText:model];
-        }];
-    }else{
-        [alert addButton:favoriteButtonTitle actionBlock:^(void) {
-            [weakSelf addToFavirateWithText:model];
-        }];
-    }
-    
-    
-    alert.showAnimationType = SCLAlertViewShowAnimationSlideInToCenter ;
-    
-    alert.shouldDismissOnTapOutside = YES;
-    
-    
-    [alert showTitle:weakSelf.parentViewController title:model subTitle:nil style:SCLAlertViewStyleWaiting  closeButtonTitle:@"取消" duration:0.0f];
-    
+- (void)nowDeselectItemAtIndexPath:(NSIndexPath *)indexPath{
+    [_collectionView deselectItemAtIndexPath:indexPath animated:YES];
 }
 
 #pragma mark -- action
@@ -171,20 +196,26 @@ UICollectionViewDataSource>{
     UIPasteboard *board = [UIPasteboard generalPasteboard];
     [board setString:text];
     
-    SCLAlertView *sucessAlert = [[SCLAlertView alloc] init];
+    NSString *title = [NSString stringWithFormat:@"%@已复制到粘贴板上",text] ;
+    [self updateTitleWithText:title];
     
-    sucessAlert.showAnimationType = SCLAlertViewShowAnimationSlideInToCenter;
-    sucessAlert.shouldDismissOnTapOutside = YES;
-    [sucessAlert showInfo:self.parentViewController title: [NSString stringWithFormat:@"%@已复制到粘贴板上",text] subTitle:@"请在其他应用里粘贴" closeButtonTitle:@"Done" duration:0.0];
+    [self performSelector:@selector(updateTitleWithText:) withObject:nil afterDelay:1.0f];
 }
 
-- (void)addToFavirateWithText:(NSString *)text{
-    [[MMFavoriteManager shareManager] addFavoriteItem:text] ;
+- (void)addOrRemoveFromFavirateWithText:(NSString *)text{
+    BOOL contains = [[MMFavoriteManager shareManager] containsItem:text];
+    NSString *favoriteButtonTitle = contains ? @"从收藏中移除":@"收藏";
+    if (contains) {
+        [[MMFavoriteManager shareManager] removeFavoriteItem:text] ;
+    }else{
+        [[MMFavoriteManager shareManager] addFavoriteItem:text] ;
+    }
+    
+    [self updateTitleWithText:favoriteButtonTitle];
+    
+    [self performSelector:@selector(updateTitleWithText:) withObject:nil afterDelay:1.0f];
 }
 
-- (void)removeFavirateWithText:(NSString *)text{
-    [[MMFavoriteManager shareManager] removeFavoriteItem:text] ;
-}
 /*
 #pragma mark - Navigation
 

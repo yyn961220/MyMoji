@@ -25,6 +25,7 @@
         label.layer.borderColor = [UIColor lightGrayColor].CGColor;
         label.contentMode = UIViewContentModeCenter;
         label.textAlignment = NSTextAlignmentCenter;
+        label.backgroundColor = [UIColor clearColor];
         
         label.font = [UIFont systemFontOfSize:THE_COLLECTION_ITEM_FONT_SIZE];
         
@@ -47,9 +48,22 @@
     [super prepareForReuse];
     [self layoutIfNeeded];
 }
-
 - (void)layoutSubviews{
     [super layoutSubviews];
     self.textLabel.frame = self.contentView.bounds;
+    self.textLabel.layer.cornerRadius = 3.0f;
 }
+
+- (void)setHighlighted:(BOOL)highlighted {
+    [super setHighlighted:highlighted];
+    if (highlighted) {
+        self.layer.borderColor = [UIColor redColor].CGColor;
+        self.layer.borderWidth = 1.0f;
+    }else{
+        self.layer.borderColor = nil;
+        self.layer.borderWidth = 0.0f;
+    }
+}
+
+
 @end

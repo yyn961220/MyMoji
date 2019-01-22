@@ -150,6 +150,15 @@ UICollectionViewDataSource>{
             forSupplementaryViewOfKind:UICollectionElementKindSectionHeader
                    withReuseIdentifier:@"CollectionViewHeaderView"];
         
+        
+        UILongPressGestureRecognizer *lpgr
+        = [[UILongPressGestureRecognizer alloc]
+           initWithTarget:self action:@selector(handleLongPress:)];
+//        lpgr.delegate = self;
+        lpgr.delaysTouchesBegan = YES;
+        [_collectionView addGestureRecognizer:lpgr];
+        
+        
         [self.view addSubview:_collectionView];
     }
 
@@ -160,6 +169,32 @@ UICollectionViewDataSource>{
                                 animated:YES
                           scrollPosition:UITableViewScrollPositionNone];
     
+}
+
+-(void)handleLongPress:(UILongPressGestureRecognizer *)gestureRecognizer{
+//    if (gestureRecognizer.state != UIGestureRecognizerStateEnded) {
+//        return;
+//    }
+    CGPoint p = [gestureRecognizer locationInView:self.collectionView];
+    
+    NSIndexPath *indexPath = [self.collectionView indexPathForItemAtPoint:p];
+    
+    if (indexPath == nil) {
+        return;
+    }
+    
+    MMTextCollectionCell* cell =  (MMTextCollectionCell *)[self.collectionView cellForItemAtIndexPath:indexPath];
+    //         do stuff with the cell
+    if (gestureRecognizer.state != UIGestureRecognizerStateEnded) {
+        [cell  setHighlighted:YES];
+        return;
+    }
+    
+        [cell  performSelector:@selector(setHighlighted:) withObject:@(NO) afterDelay:0.2];
+        
+        NSArray *array = [self.allList objectForKey:[self.categates objectAtIndex:indexPath.section]];
+        NSString *model = [array objectAtIndex:indexPath.item];
+        [self addToFavirateWithText:model];
 }
 #pragma mark -- getters
 - (NSMutableArray *)categates{

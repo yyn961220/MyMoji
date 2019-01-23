@@ -159,12 +159,14 @@ UICollectionViewDataSource>{
                    withReuseIdentifier:@"CollectionViewHeaderView"];
         
         
-        UITapGestureRecognizer *lpgr
-        = [[UITapGestureRecognizer alloc]
+       
+        UILongPressGestureRecognizer *lpgr
+        = [[UILongPressGestureRecognizer alloc]
            initWithTarget:self action:@selector(handleLongPress:)];
-        lpgr.numberOfTapsRequired = 2;
-        lpgr.numberOfTouchesRequired = 2;
+        //        lpgr.delegate = self;
+        lpgr.delaysTouchesBegan = YES;
         [_collectionView addGestureRecognizer:lpgr];
+        
         
         
         [self.view addSubview:_collectionView];

@@ -6,7 +6,13 @@
   Copyright © 2019年 BeterLife. All rights reserved.
 */
 "Kaomoji" = "颜文字";
+
 "Favorite" = "好き";
+
 "Settings" = "Settings";
+
 "Feedback" = "フィードバック";
+
 "Share App" = "アプリを共有";
+
+"I have found a good Kaomoji app,try it:%@" =  "我发现一款很好的颜文字APP,快来h尝试一下吧:%@";

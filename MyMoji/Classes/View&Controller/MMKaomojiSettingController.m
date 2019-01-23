@@ -82,7 +82,11 @@
 }
 
 - (void)shareWithFriend{
-    UIActivityViewController *vc = [[UIActivityViewController alloc] initWithActivityItems:@[@"分享My Kaomoji给好友"] applicationActivities:nil];
+    
+    NSString *downLoadURL = @"https://itunes.apple.com/app/id1450275979?mt=8";
+    NSString *share = [NSString stringWithFormat:@"%@ %@",NSLocalizedString(@"I have found a good Kaomoji app,try it:%@", nil),downLoadURL];
+    
+    UIActivityViewController *vc = [[UIActivityViewController alloc] initWithActivityItems:@[share,[NSURL URLWithString:downLoadURL]] applicationActivities:nil];
     UIPopoverPresentationController *pop = vc.popoverPresentationController ;
     pop.sourceRect = self.view.bounds;
     pop.sourceView = self.view;
@@ -98,7 +102,7 @@
     emailPicker.navigationBar.tintColor = self.view.tintColor;
     emailPicker.mailComposeDelegate = self;
     [emailPicker setToRecipients:@[@"zhxf2005307@gmail.com"]];
-    emailPicker.subject = @"问题反馈";
+    emailPicker.subject = @"Sugeestions";
     
     NSString __block *text = @"My Kaomoji";
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];

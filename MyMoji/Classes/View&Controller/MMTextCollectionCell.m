@@ -7,7 +7,7 @@
 //
 
 #import "MMTextCollectionCell.h"
-
+#define defaultCollectionCellColor rgba(253, 210, 42, 1)
 
 @interface MMTextCollectionCell ()
 
@@ -21,8 +21,8 @@
     self = [super initWithFrame:frame];
     if (self) {
         UILabel *label = [[UILabel alloc] initWithFrame:CGRectZero];
-        label.layer.borderWidth =1;
-        label.layer.borderColor = [UIColor lightGrayColor].CGColor;
+        label.layer.borderWidth = 1;
+        label.layer.borderColor = [UIColor colorWithWhite:0 alpha:0.1].CGColor;
         label.contentMode = UIViewContentModeCenter;
         label.textAlignment = NSTextAlignmentCenter;
         label.backgroundColor = [UIColor clearColor];
@@ -57,12 +57,15 @@
 - (void)setHighlighted:(BOOL)highlighted {
     [super setHighlighted:highlighted];
     if (highlighted) {
-        self.layer.borderColor = [UIColor redColor].CGColor;
+        self.layer.borderColor = defaultCollectionCellColor.CGColor;
         self.layer.borderWidth = 1.0f;
+        self.contentView.backgroundColor = defaultCollectionCellColor;
     }else{
         self.layer.borderColor = nil;
         self.layer.borderWidth = 0.0f;
+        self.contentView.backgroundColor = [UIColor whiteColor];
     }
+
 }
 
 - (void)setSelected:(BOOL)selected{

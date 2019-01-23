@@ -41,15 +41,17 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseCellIdentifier];
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseCellIdentifier];
+        cell.textLabel.font = [UIFont systemFontOfSize:15 weight:UIFontWeightRegular];
+        cell.textLabel.textColor = [UIColor colorWithRed:80/255.0 green:80/255.0 blue:80/255.0 alpha:1.0];
     }
     
     switch (indexPath.row) {
         case 0:{
-            cell.textLabel.text = @"问题反馈" ;
+            cell.textLabel.text = NSLocalizedString(@"Feedback",nil);
         }
             break;
         case 1:{
-            cell.textLabel.text = @"分享给朋友" ;
+            cell.textLabel.text = NSLocalizedString(@"Share App",nil) ;
         }
             break;
         default:

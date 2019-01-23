@@ -148,7 +148,7 @@ UICollectionViewDataSource>{
 - (void)updateTitleWithText:(NSString *)text{
     NSString *title = text;
     if (title.length == 0) {
-        title = @"My Favorite";
+        title = NSLocalizedString(@"Favorite",nil);
     }
     self.navigationItem.title = title ;
 }

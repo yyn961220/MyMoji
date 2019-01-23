@@ -130,7 +130,7 @@ UICollectionViewDataSource>{
         _tableView.rowHeight = 35;
         _tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
         _tableView.showsVerticalScrollIndicator = NO;
-        _tableView.separatorColor = [UIColor clearColor];
+        _tableView.separatorColor = [UIColor whiteColor];
         [_tableView registerClass:[MMTextTableViewCell  class] forCellReuseIdentifier:kMMTextTableViewCellIdentifier];
         [self.view addSubview:_tableView];
     }
@@ -159,11 +159,11 @@ UICollectionViewDataSource>{
                    withReuseIdentifier:@"CollectionViewHeaderView"];
         
         
-        UILongPressGestureRecognizer *lpgr
-        = [[UILongPressGestureRecognizer alloc]
+        UITapGestureRecognizer *lpgr
+        = [[UITapGestureRecognizer alloc]
            initWithTarget:self action:@selector(handleLongPress:)];
-//        lpgr.delegate = self;
-        lpgr.delaysTouchesBegan = YES;
+        lpgr.numberOfTapsRequired = 2;
+        lpgr.numberOfTouchesRequired = 2;
         [_collectionView addGestureRecognizer:lpgr];
         
         
@@ -210,7 +210,7 @@ UICollectionViewDataSource>{
 - (void)updateTitleWithText:(NSString *)text{
     NSString *title = text;
     if (title.length == 0) {
-        title = @"My Kaomoji";
+        title = NSLocalizedString(@"Kaomoji",nil);
     }
     self.navigationItem.title = title ;
 }

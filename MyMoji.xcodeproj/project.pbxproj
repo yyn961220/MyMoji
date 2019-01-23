@@ -21,6 +21,8 @@
 		83A5F8A121DE15A500344B91 /* MyMojiUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A5F8A021DE15A500344B91 /* MyMojiUITests.m */; };
 		83A5F8BA21DEFD3500344B91 /* MMTextListFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A5F8B921DEFD3500344B91 /* MMTextListFlowLayout.m */; };
 		83A5F8E921DF540500344B91 /* MMTextCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A5F8E821DF540500344B91 /* MMTextCollectionCell.m */; };
+		83C5100221F8072A00769259 /* MMKaomojiTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C5100121F8072A00769259 /* MMKaomojiTabBarController.m */; };
+		83C5100521F80CBD00769259 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 83C5100721F80CBD00769259 /* Localizable.strings */; };
 		83C9B34721F6F87300CFC2F1 /* MyKaomojiList.json in Resources */ = {isa = PBXBuildFile; fileRef = 8313917821EF112E001791FA /* MyKaomojiList.json */; };
 		83C9B34A21F704B200CFC2F1 /* MMKaomojiSettingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C9B34921F704B200CFC2F1 /* MMKaomojiSettingController.m */; };
 /* End PBXBuildFile section */
@@ -73,6 +75,12 @@
 		83A5F8B921DEFD3500344B91 /* MMTextListFlowLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMTextListFlowLayout.m; sourceTree = "<group>"; };
 		83A5F8E721DF540500344B91 /* MMTextCollectionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMTextCollectionCell.h; sourceTree = "<group>"; };
 		83A5F8E821DF540500344B91 /* MMTextCollectionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMTextCollectionCell.m; sourceTree = "<group>"; };
+		83C5100021F8072A00769259 /* MMKaomojiTabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMKaomojiTabBarController.h; sourceTree = "<group>"; };
+		83C5100121F8072A00769259 /* MMKaomojiTabBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMKaomojiTabBarController.m; sourceTree = "<group>"; };
+		83C5100621F80CBD00769259 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		83C5100821F80CBF00769259 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		83C5100921F80CC100769259 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		83C5100A21F80CC300769259 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
 		83C9B34821F704B200CFC2F1 /* MMKaomojiSettingController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMKaomojiSettingController.h; sourceTree = "<group>"; };
 		83C9B34921F704B200CFC2F1 /* MMKaomojiSettingController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMKaomojiSettingController.m; sourceTree = "<group>"; };
 		83C9B34B21F7680C00CFC2F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = Base; path = Base.lproj/test.json; sourceTree = "<group>"; };
@@ -230,6 +238,9 @@
 				8313917621EF084C001791FA /* MMTextTableViewCell.m */,
 				83C9B34821F704B200CFC2F1 /* MMKaomojiSettingController.h */,
 				83C9B34921F704B200CFC2F1 /* MMKaomojiSettingController.m */,
+				83C5100021F8072A00769259 /* MMKaomojiTabBarController.h */,
+				83C5100121F8072A00769259 /* MMKaomojiTabBarController.m */,
+				83C5100721F80CBD00769259 /* Localizable.strings */,
 			);
 			path = "View&Controller";
 			sourceTree = "<group>";
@@ -319,6 +330,9 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
+				ja,
+				ko,
 			);
 			mainGroup = 83A5F87021DE15A400344B91;
 			productRefGroup = 83A5F87A21DE15A400344B91 /* Products */;
@@ -337,6 +351,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				83C5100521F80CBD00769259 /* Localizable.strings in Resources */,
 				83A5F88921DE15A500344B91 /* LaunchScreen.storyboard in Resources */,
 				83A5F88621DE15A500344B91 /* Assets.xcassets in Resources */,
 				83C9B34721F6F87300CFC2F1 /* MyKaomojiList.json in Resources */,
@@ -372,6 +387,7 @@
 				8313917721EF084C001791FA /* MMTextTableViewCell.m in Sources */,
 				83C9B34A21F704B200CFC2F1 /* MMKaomojiSettingController.m in Sources */,
 				8313916D21EED200001791FA /* MMKaomojiFavoriteController.m in Sources */,
+				83C5100221F8072A00769259 /* MMKaomojiTabBarController.m in Sources */,
 				83A5F87E21DE15A400344B91 /* AppDelegate.m in Sources */,
 				8313917021EF00F1001791FA /* MMTextHeaderView.m in Sources */,
 				8313916A21EE0822001791FA /* MMFavoriteManager.m in Sources */,
@@ -444,6 +460,17 @@
 				83C9B36021F768E200CFC2F1 /* vi */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		83C5100721F80CBD00769259 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				83C5100621F80CBD00769259 /* en */,
+				83C5100821F80CBF00769259 /* zh-Hans */,
+				83C5100921F80CC100769259 /* ja */,
+				83C5100A21F80CC300769259 /* ko */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 		83C9B34C21F7680C00CFC2F1 /* test.json */ = {
@@ -577,7 +604,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = PFM2YVG6D2;
+				DEVELOPMENT_TEAM = 6RQ266KGE7;
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = MyMoji/Supports/MyMoji.pch;
@@ -600,7 +627,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = PFM2YVG6D2;
+				DEVELOPMENT_TEAM = 6RQ266KGE7;
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = MyMoji/Supports/MyMoji.pch;

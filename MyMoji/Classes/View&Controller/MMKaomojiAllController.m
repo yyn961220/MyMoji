@@ -269,16 +269,20 @@ UICollectionViewDataSource>{
     [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:_selectIndex] atScrollPosition:UICollectionViewScrollPositionTop animated:YES];
     [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:_selectIndex inSection:0]                          atScrollPosition:UITableViewScrollPositionTop animated:YES];
     
+       [self scrollToTopOfSection:_selectIndex animated:YES];
    
 }
 
 #pragma mark - 解决点击 TableView 后 CollectionView 的 Header 遮挡问题
 
 - (void)scrollToTopOfSection:(NSInteger)section animated:(BOOL)animated{
-    CGRect headerRect = [self frameForHeaderForSection:section];
-//    CGPoint topOfHeader = CGPointMake(0, headerRect.origin.y - _collectionView.contentInset.top);
-    CGPoint topOfHeader = CGPointMake(0, headerRect.origin.y - headerRect.size.height);
-    [self.collectionView setContentOffset:topOfHeader animated:animated];
+//    CGRect headerRect = [self frameForHeaderForSection:section];
+//    CGPoint topOfHeader = CGPointMake(0, headerRect.origin.y - _collectionView.contentInset.top - headerRect.size.height);
+//    [self.collectionView setContentOffset:topOfHeader animated:animated];
+    
+    CGPoint point =  self.collectionView.contentOffset;
+    point.y -= THE_COLLECTION_HEADER_HEIGHT + kCollectionItemSpace ;
+    [self.collectionView setContentOffset:point];
 }
 
 - (CGRect)frameForHeaderForSection:(NSInteger)section{

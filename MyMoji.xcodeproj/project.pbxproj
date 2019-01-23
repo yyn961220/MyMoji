@@ -198,6 +198,7 @@
 				83A5F88721DE15A500344B91 /* LaunchScreen.storyboard */,
 				8313917821EF112E001791FA /* MyKaomojiList.json */,
 				83C9B34C21F7680C00CFC2F1 /* test.json */,
+				83C5100721F80CBD00769259 /* Localizable.strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -240,7 +241,6 @@
 				83C9B34921F704B200CFC2F1 /* MMKaomojiSettingController.m */,
 				83C5100021F8072A00769259 /* MMKaomojiTabBarController.h */,
 				83C5100121F8072A00769259 /* MMKaomojiTabBarController.m */,
-				83C5100721F80CBD00769259 /* Localizable.strings */,
 			);
 			path = "View&Controller";
 			sourceTree = "<group>";
@@ -604,7 +604,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6RQ266KGE7;
+				DEVELOPMENT_TEAM = PFM2YVG6D2;
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = MyMoji/Supports/MyMoji.pch;
@@ -627,7 +627,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6RQ266KGE7;
+				DEVELOPMENT_TEAM = PFM2YVG6D2;
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = MyMoji/Supports/MyMoji.pch;

@@ -25,6 +25,7 @@
 		83C5100521F80CBD00769259 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 83C5100721F80CBD00769259 /* Localizable.strings */; };
 		83C9B34721F6F87300CFC2F1 /* MyKaomojiList.json in Resources */ = {isa = PBXBuildFile; fileRef = 8313917821EF112E001791FA /* MyKaomojiList.json */; };
 		83C9B34A21F704B200CFC2F1 /* MMKaomojiSettingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C9B34921F704B200CFC2F1 /* MMKaomojiSettingController.m */; };
+		83C9B36621F87CDC00CFC2F1 /* launchIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 83C9B36521F87CDC00CFC2F1 /* launchIcon.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,6 +105,7 @@
 		83C9B35E21F768BE00CFC2F1 /* th */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = th; path = th.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		83C9B35F21F768E200CFC2F1 /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/Main.strings; sourceTree = "<group>"; };
 		83C9B36021F768E200CFC2F1 /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		83C9B36521F87CDC00CFC2F1 /* launchIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launchIcon.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -197,6 +199,7 @@
 				83A5F88521DE15A500344B91 /* Assets.xcassets */,
 				83A5F88721DE15A500344B91 /* LaunchScreen.storyboard */,
 				8313917821EF112E001791FA /* MyKaomojiList.json */,
+				83C9B36521F87CDC00CFC2F1 /* launchIcon.png */,
 				83C9B34C21F7680C00CFC2F1 /* test.json */,
 				83C5100721F80CBD00769259 /* Localizable.strings */,
 			);
@@ -352,6 +355,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				83C5100521F80CBD00769259 /* Localizable.strings in Resources */,
+				83C9B36621F87CDC00CFC2F1 /* launchIcon.png in Resources */,
 				83A5F88921DE15A500344B91 /* LaunchScreen.storyboard in Resources */,
 				83A5F88621DE15A500344B91 /* Assets.xcassets in Resources */,
 				83C9B34721F6F87300CFC2F1 /* MyKaomojiList.json in Resources */,

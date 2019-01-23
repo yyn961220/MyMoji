@@ -37,7 +37,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
-                                <color key="value" red="0.9882352941176471" green="0.81960784313725488" blue="0.25098039215686274" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="value" red="0.29042428731918335" green="0.69638067483901978" blue="0.91007500886917114" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="color" keyPath="unselectedItemTintColor">
                                 <color key="value" red="0.70588235294117641" green="0.70588235294117641" blue="0.70588235294117641" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -142,9 +142,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Favorite" width="32" height="32"/>
+        <image name="Favorite" width="30" height="30"/>
         <image name="Kaomoji" width="30" height="30"/>
         <image name="Settings" width="32" height="32"/>
     </resources>
-    <color key="tintColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+    <color key="tintColor" red="0.29042428731918335" green="0.69638067483901978" blue="0.91007500886917114" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

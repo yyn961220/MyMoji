@@ -7,7 +7,7 @@
 //
 
 #import "MMTextCollectionCell.h"
-#define defaultCollectionCellColor rgba(253, 210, 42, 1)
+#define defaultCollectionCellColor rgba(74, 178, 232, 0.7)
 
 @interface MMTextCollectionCell ()
 
@@ -57,12 +57,12 @@
 - (void)setHighlighted:(BOOL)highlighted {
     [super setHighlighted:highlighted];
     if (highlighted) {
-        self.layer.borderColor = defaultCollectionCellColor.CGColor;
-        self.layer.borderWidth = 1.0f;
+//        self.layer.borderColor = defaultCollectionCellColor.CGColor;
+//        self.layer.borderWidth = 1.0f;
         self.contentView.backgroundColor = defaultCollectionCellColor;
     }else{
-        self.layer.borderColor = nil;
-        self.layer.borderWidth = 0.0f;
+//        self.layer.borderColor = nil;
+//        self.layer.borderWidth = 0.0f;
         self.contentView.backgroundColor = [UIColor whiteColor];
     }
 

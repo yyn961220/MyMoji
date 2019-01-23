@@ -8,7 +8,7 @@
 
 #import "MMTextTableViewCell.h"
 
-#define defaultTableCellColor rgba(253, 210, 42, 1)
+#define defaultTableCellColor rgba(74, 178, 232, 1)
 
 @interface MMTextTableViewCell ()
 

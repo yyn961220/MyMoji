@@ -23,7 +23,6 @@
 		83A5F8E921DF540500344B91 /* MMTextCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A5F8E821DF540500344B91 /* MMTextCollectionCell.m */; };
 		83C5100221F8072A00769259 /* MMKaomojiTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C5100121F8072A00769259 /* MMKaomojiTabBarController.m */; };
 		83C5100521F80CBD00769259 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 83C5100721F80CBD00769259 /* Localizable.strings */; };
-		83C9B34721F6F87300CFC2F1 /* MyKaomojiList.json in Resources */ = {isa = PBXBuildFile; fileRef = 8313917821EF112E001791FA /* MyKaomojiList.json */; };
 		83C9B34A21F704B200CFC2F1 /* MMKaomojiSettingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C9B34921F704B200CFC2F1 /* MMKaomojiSettingController.m */; };
 		83C9B36621F87CDC00CFC2F1 /* launchIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 83C9B36521F87CDC00CFC2F1 /* launchIcon.png */; };
 /* End PBXBuildFile section */
@@ -358,7 +357,6 @@
 				83C9B36621F87CDC00CFC2F1 /* launchIcon.png in Resources */,
 				83A5F88921DE15A500344B91 /* LaunchScreen.storyboard in Resources */,
 				83A5F88621DE15A500344B91 /* Assets.xcassets in Resources */,
-				83C9B34721F6F87300CFC2F1 /* MyKaomojiList.json in Resources */,
 				83A5F88421DE15A400344B91 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

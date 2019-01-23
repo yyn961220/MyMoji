@@ -58,15 +58,15 @@ UICollectionViewDataSource>{
 
 - (void)loadData{
         // 加载数据
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"MyKaomojiList" ofType:@"json"];
-  // //        NSDictionary *dictonary = [NSDictionary dictionaryWithContentsOfFile:path];
-    NSData *jsonData = [[NSData alloc] initWithContentsOfFile:path];
+//    NSString *path = [[NSBundle mainBundle] pathForResource:@"MyKaomojiList" ofType:@"json"];
+//  // //        NSDictionary *dictonary = [NSDictionary dictionaryWithContentsOfFile:path];
+//    NSData *jsonData = [[NSData alloc] initWithContentsOfFile:path];
     
-//    NSData *jsonData = [[NSDataAsset alloc] initWithName:@"MyKaomojiList" bundle:[NSBundle mainBundle]].data;
+    NSData *jsonData = [[NSDataAsset alloc] initWithName:@"MyKaomojiList" bundle:[NSBundle mainBundle]].data;
     NSError *error = nil;
     NSDictionary *dictonary = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:&error];
     if (dictonary == nil) {
-        NSLog(@"error = %@",error);
+//        NSLog(@"error = %@",error);
         return;
     }
     
@@ -87,7 +87,7 @@ UICollectionViewDataSource>{
     NSDictionary *dict = @{NSFontAttributeName:[UIFont systemFontOfSize:THE_COLLECTION_ITEM_FONT_SIZE]};
     
     NSMutableArray *widthsArray = [NSMutableArray array];
-    NSLog(@"begain get widthsArray");
+//    NSLog(@"begain get widthsArray");
     
     
     CGFloat collectionWidth = SCREEN_WIDTH - kLeftTableViewWidth - 2 * kCollectionViewMargin ;
@@ -118,7 +118,7 @@ UICollectionViewDataSource>{
     }
     
     self.cellSizes = widthsArray;
-    NSLog(@"end get widthsArray");
+//    NSLog(@"end get widthsArray");
 }
 
 - (void)initTableAndCollecionView{

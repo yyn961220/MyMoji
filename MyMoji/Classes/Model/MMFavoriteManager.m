@@ -57,7 +57,7 @@
     if (![manager fileExistsAtPath:path]) {
         BOOL succeed = [[NSMutableArray array] writeToFile:path atomically:YES];
         if (!succeed) {
-            NSLog(@"should create a file here");
+//            NSLog(@"should create a file here");
         }
     }
     return path;

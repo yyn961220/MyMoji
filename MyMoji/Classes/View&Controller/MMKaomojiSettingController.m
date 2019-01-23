@@ -24,6 +24,8 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    self.navigationItem.title = NSLocalizedString(@"Settings",nil);;
 }
 
 #pragma mark - Table view data source
@@ -89,6 +91,7 @@
 
 - (void)suggestionAction{
     if (![MFMailComposeViewController canSendMail]) {
+        
         return;
     }
     MFMailComposeViewController *emailPicker = [[MFMailComposeViewController alloc] init];

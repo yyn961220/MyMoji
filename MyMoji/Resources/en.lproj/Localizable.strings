@@ -8,7 +8,7 @@
 
 "Kaomoji" = "Kaomoji";
 
-"Favorite" = "Favorite";
+"Favorites" = "Favorites";
 
 "Settings" = "Settings";
 
@@ -17,3 +17,19 @@
 "Share App" = "Share With Friends";
 
 "I have found a good Kaomoji app,try it:%@" = "I have found a good Kaomoji app,try it:%@";
+
+"Tap item to copy it" = "Tap item to copy it";
+
+"Long press to remove item from favorites" = "Long press to remove item from favorites";
+
+"Long press to add item to favorites" = "Long press to add item to favorites";
+
+"Copied to pasteboard:%@" = "Copied to pasteboard:%@";
+
+"Removed from favorites:%@" = "Removed from favorites:%@";
+
+"Added to favorites:%@" = "Added to favorites:%@";
+
+"Help" = "Help";
+
+"About us" = "About us";

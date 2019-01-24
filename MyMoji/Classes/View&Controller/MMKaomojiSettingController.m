@@ -10,7 +10,9 @@
 //#import <MessageUI/MessageUI.h>
 #import <MessageUI/MFMailComposeViewController.h>
 
-@interface MMKaomojiSettingController ()<MFMailComposeViewControllerDelegate>
+@interface MMKaomojiSettingController ()<MFMailComposeViewControllerDelegate>{
+    NSArray *_helpTips;
+}
 
 @end
 
@@ -25,17 +27,26 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    self.navigationItem.title = NSLocalizedString(@"Settings",nil);;
+    self.navigationItem.title = NSLocalizedString(@"Settings",nil);
+    NSString *tip1 = [NSString stringWithFormat:@"1.%@", NSLocalizedString(@"Tap item to copy it",nil)];
+     NSString *tip2 =[NSString stringWithFormat:@"2.%@", NSLocalizedString(@"Long press to Add item to favirates",nil)];
+    NSString *tip3 = [NSString stringWithFormat:@"3.%@", NSLocalizedString(@"Long press to remove item from favirates",nil)];
+    _helpTips = @[tip1,tip2,tip3];
 }
 
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 2;
+    if (section == 0) {
+        return _helpTips.count ;
+    }else if (section == 1){
+        return 2 ;
+    }
+    return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -47,37 +58,57 @@
         cell.textLabel.textColor = [UIColor colorWithRed:80/255.0 green:80/255.0 blue:80/255.0 alpha:1.0];
     }
     
-    switch (indexPath.row) {
-        case 0:{
-            cell.textLabel.text = NSLocalizedString(@"Feedback",nil);
+    if(indexPath.section == 0){
+        NSString *text = _helpTips[indexPath.row];
+        cell.textLabel.text = text;
+        cell.accessoryType = UITableViewCellAccessoryNone;
+    }else if (indexPath.section == 1) {
+        switch (indexPath.row) {
+            case 0:{
+                cell.textLabel.text = NSLocalizedString(@"Feedback",nil);
+            }
+                break;
+            case 1:{
+                cell.textLabel.text = NSLocalizedString(@"Share App",nil) ;
+            }
+                break;
+            default:
+                break;
         }
-            break;
-        case 1:{
-            cell.textLabel.text = NSLocalizedString(@"Share App",nil) ;
-        }
-            break;
-        default:
-            break;
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     
     return cell;
 }
 
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
+    if (section == 0) {
+        return NSLocalizedString(@"Help",nil);
+    }else if (section == 1){
+        return NSLocalizedString(@"About us",nil);
+    }
+    return nil;
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    switch (indexPath.row) {
-        case 0:{
-            [self suggestionAction];
-        }
-            break;
-        case 1:{
-            [self shareWithFriend];
-        }
-            break;
-        default:
-            break;
-    }
     
+    if (indexPath.row == 0) {
+        
+    }else if (indexPath.row == 1){
+        switch (indexPath.row) {
+            case 0:{
+                [self suggestionAction];
+            }
+                break;
+            case 1:{
+                [self shareWithFriend];
+            }
+                break;
+            default:
+                break;
+        }
+    }
     
 }
 

@@ -35,6 +35,8 @@ UICollectionViewDataSource>{
 @property (nonatomic, strong) NSMutableDictionary *allList;
 @property (nonatomic, strong) NSMutableArray *cellSizes ;
 
+@property (nonatomic, strong) UILabel *remindLabel ;
+
 //@property (nonatomic, strong) MMTextListFlowLayout *flowLayout;
 
 @end
@@ -49,10 +51,21 @@ UICollectionViewDataSource>{
     
     self.view.backgroundColor = [UIColor whiteColor];
     
-    [self updateTitleWithText:nil];
+    
     
      [self loadData];
      [self initTableAndCollecionView];
+
+     [self showTips];
+}
+
+- (void)showTips{
+    NSString *tip1 = [NSString stringWithFormat:@"1.%@", NSLocalizedString(@"Tap item to copy it",nil)];
+    NSString *tip2 =[NSString stringWithFormat:@"2.%@", NSLocalizedString(@"Long press to add item to favorites",nil)];
+    
+    NSString *allTips = [NSString stringWithFormat:@"%@ \n%@",tip1,tip2];
+    
+   [self updateTitleWithText:allTips dismissAfterDelay:5.0f];
 
 }
 
@@ -202,19 +215,36 @@ UICollectionViewDataSource>{
         return;
     }
     
-        [cell  performSelector:@selector(setHighlighted:) withObject:@(NO) afterDelay:0.2];
+        [cell  performSelector:@selector(setHighlighted:) withObject:@(NO) afterDelay:0.3f];
         
         NSArray *array = [self.allList objectForKey:[self.categates objectAtIndex:indexPath.section]];
         NSString *model = [array objectAtIndex:indexPath.item];
         [self addOrRemoveFromFavirateWithText:model];
 }
 
-- (void)updateTitleWithText:(NSString *)text{
+- (void)updateTitleWithText:(NSString *)text dismissAfterDelay:(NSTimeInterval)secend{
     NSString *title = text;
     if (title.length == 0) {
-        title = NSLocalizedString(@"Kaomoji",nil);
+        [self setDefaultTitle];
+        return;
     }
-    self.navigationItem.title = title ;
+    
+    self.navigationItem.titleView = self.remindLabel;
+    self.remindLabel.text = title;
+    
+    [UIView animateWithDuration:0.1 delay:secend options:UIViewAnimationOptionCurveEaseInOut animations:^{
+         self.remindLabel.alpha = 0.9;
+    } completion:^(BOOL finished) {
+        if (finished) {
+             self.remindLabel.alpha = 1.0;
+            [self setDefaultTitle];
+        }
+    }];
+}
+
+- (void)setDefaultTitle{
+    self.navigationItem.titleView = nil;
+    self.navigationItem.title = NSLocalizedString(@"Kaomoji",nil) ;
 }
 #pragma mark -- getters
 - (NSMutableArray *)categates{
@@ -233,6 +263,15 @@ UICollectionViewDataSource>{
     return _allList;
 }
 
+- (UILabel *)remindLabel{
+    if (!_remindLabel) {
+        _remindLabel = [[UILabel  alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width - 100, 40)];
+        _remindLabel.numberOfLines = 0 ;
+        _remindLabel.textAlignment =NSTextAlignmentCenter ;
+        _remindLabel.font = [UIFont systemFontOfSize:14.0f];
+    }
+    return _remindLabel;
+}
 /*
 #pragma mark - Navigation
 
@@ -325,7 +364,7 @@ UICollectionViewDataSource>{
     NSArray *array = [self.allList objectForKey:[self.categates objectAtIndex:indexPath.section]];
     NSString *model = [array objectAtIndex:indexPath.item];
     
-    [self performSelector:@selector(nowDeselectItemAtIndexPath:) withObject:indexPath afterDelay:0.5f];
+    [self performSelector:@selector(nowDeselectItemAtIndexPath:) withObject:indexPath afterDelay:0.3f];
    
     [self copyWithText:model];
 }
@@ -401,17 +440,27 @@ UICollectionViewDataSource>{
     UIPasteboard *board = [UIPasteboard generalPasteboard];
     [board setString:text];
     
-    NSString *title = [NSString stringWithFormat:@"已复制:%@",text] ;
+    NSString *title = [NSString stringWithFormat:NSLocalizedString(@"Copied to pasteboard:%@",nil),text] ;
     
-    [self updateTitleWithText:title];
+    [self updateTitleWithText:title dismissAfterDelay:THE_REMIND_INFOR_SHOW_TIME];
     
-    [self performSelector:@selector(updateTitleWithText:) withObject:nil afterDelay:THE_REMIND_INFOR_SHOU_TIME];
+//    [self performSelector:@selector(updateTitleWithText:) withObject:nil afterDelay:THE_REMIND_INFOR_SHOU_TIME];
 }
 
 - (void)addOrRemoveFromFavirateWithText:(NSString *)text{
     BOOL contains = [[MMFavoriteManager shareManager] containsItem:text];
-    NSString *remove = [NSString stringWithFormat:@"移除收藏：%@",text];
-    NSString *add = [NSString stringWithFormat:@"已收藏：%@",text];
+
+    if (!contains) {
+        [[MMFavoriteManager shareManager] addFavoriteItem:text] ;
+    }
+    
+     NSString *favoriteButtonTitle = [NSString stringWithFormat:NSLocalizedString(@"Added to favorites:%@",nil),text];
+    
+    [self updateTitleWithText:favoriteButtonTitle dismissAfterDelay:THE_REMIND_INFOR_SHOW_TIME];
+    
+    /*
+    NSString *remove = [NSString stringWithFormat:NSLocalizedString(@"Removed from favorites:%@",nil),text];
+    NSString *add = [NSString stringWithFormat:NSLocalizedString(@"Added to favorites:%@",nil),text];
     
     NSString *favoriteButtonTitle = contains ? remove:add;
     
@@ -421,9 +470,8 @@ UICollectionViewDataSource>{
         [[MMFavoriteManager shareManager] addFavoriteItem:text] ;
     }
     
-    [self updateTitleWithText:favoriteButtonTitle];
-    
-    [self performSelector:@selector(updateTitleWithText:) withObject:nil afterDelay:THE_REMIND_INFOR_SHOU_TIME];
+    [self updateTitleWithText:favoriteButtonTitle dismissAfterDelay:THE_REMIND_INFOR_SHOW_TIME];
+     */
 }
 
 

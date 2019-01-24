@@ -5,14 +5,108 @@
   Created by xingfa.zhou on 2019/1/23.
   Copyright © 2019年 BeterLife. All rights reserved.
 */
-"Kaomoji" = "颜文字";
 
-"Favorite" = "好き";
 
-"Settings" = "Settings";
+"Kaomoji" = "얀 텍스트";
 
-"Feedback" = "意见反馈";
+"Favorites" = "즐겨 찾기";
 
-"Share App" = "アプリを共有";
+"Settings" = "설정";
 
-"I have found a good Kaomoji app,try it:%@" =  "我发现一款很好的颜文字APP,快来h尝试一下吧:%@";
+"Feedback" = "피드백";
+
+"Suggestions & problems" = "제안 및 문제점" ;
+
+"Share App" = "친구와 공유";
+
+"I have found a good Kaomoji app ,try it:%@" = "좋은 Kaomoji 앱을 발견했습니다. 시도해보세요. %@";
+
+"Tap item to copy it" = "항목을 탭하여 복사하십시오.";
+
+"Long press to remove item from favorites" = "길게 누르면 즐겨 찾기에서 항목이 제거됩니다.";
+
+"Long press to add item to favorites" = "길게 누르면 즐겨 찾기에 항목이 추가됩니다.";
+
+"Copied to pasteboard:%@" = "판지에 복사 : %@";
+
+"Removed from favorites:%@" = "즐겨 찾기에서 삭제 : %@";
+
+"Added to favorites:%@" = "즐겨 찾기에 추가됨 : %@";
+
+"Help" = "도움";
+
+"About us" = "회사 소개";
+
+"Joy" = "즐거움";
+
+"Cheerful" = "쾌활한";
+
+"Excited" = "흥분한";
+
+"Greeting" = "인사";
+
+"Love" = "애정";
+
+"Hugging" = "포옹";
+
+"Sad" = "슬퍼";
+
+"Crying" = "외치는";
+
+"Depressed" = "우울한";
+
+"Sympathy" = "동정";
+
+"Apologizing" = "사과";
+
+"Surprised" = "놀란";
+
+"Confused" = "혼란스러워하는";
+
+"Embarrassment" = "당황";
+
+"Doubt" = "의심";
+
+"Indifference" = "무관심";
+
+"Angry" = "성난";
+
+"Mad" = "미친";
+
+"Table Flipping" = "테이블 뒤집기";
+
+"Dissatisfaction" = "불만";
+
+"Sleeping" = "잠자는 중";
+
+"Hiding" = "숨김";
+
+"Winking" = "윙크";
+
+"Characters" = "등장인물";
+
+"Writing" = "쓰기";
+
+"Running" = "달리는";
+
+"Blushing" = "홍조";
+
+"Music" = "음악";
+
+"Eating" = "먹기";
+
+"Festival" = "제전";
+
+"Birthday" = "생일";
+
+"Dogs" = "개";
+
+"Cats" = "고양이";
+
+"Bears" = "곰";
+
+"Pigs" = "돼지";
+
+"Rabbit" = "토끼";
+
+"Other Animals"  = "다른 동물들";

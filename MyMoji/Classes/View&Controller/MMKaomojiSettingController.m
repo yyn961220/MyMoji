@@ -133,7 +133,7 @@
     emailPicker.navigationBar.tintColor = self.view.tintColor;
     emailPicker.mailComposeDelegate = self;
     [emailPicker setToRecipients:@[@"zhxf2005307@gmail.com"]];
-    emailPicker.subject = @"Sugeestions";
+    emailPicker.subject = NSLocalizedString(@"Suggestions & problems", nil);
     
     NSString __block *text = @"My Kaomoji";
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];

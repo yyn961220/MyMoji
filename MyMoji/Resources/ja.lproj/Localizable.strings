@@ -5,14 +5,107 @@
   Created by xingfa.zhou on 2019/1/23.
   Copyright © 2019年 BeterLife. All rights reserved.
 */
-"Kaomoji" = "颜文字";
 
-"Favorite" = "好き";
+"Kaomoji" = "Kaomoji";
 
-"Settings" = "Settings";
+"Favorites" = "好き";
+
+"Settings" = "設定";
 
 "Feedback" = "フィードバック";
 
-"Share App" = "アプリを共有";
+"Suggestions & problems" = "问题和建议" ;
 
-"I have found a good Kaomoji app,try it:%@" =  "我发现一款很好的颜文字APP,快来h尝试一下吧:%@";
+"Share App" = "友達とシェア";
+
+"I have found a good Kaomoji app ,try it:%@" = "良いKaomojiアプリを見つけました、試してください：％@";
+
+"Tap item to copy it" = "コピーする項目をタップします";
+
+"Long press to remove item from favorites" = "お気に入りからアイテムを削除するには長押し";
+
+"Long press to add item to favorites" = "アイテムをお気に入りに追加するには長押し";
+
+"Copied to pasteboard:%@" = "ペーストボードにコピーされました：%@";
+
+"Removed from favorites:%@" = "お気に入りから削除しました：%@";
+
+"Added to favorites:%@" = "お気に入りに追加：%@";
+
+"Help" = "ヘルプ";
+
+"About us" = "私達について";
+
+"Joy" = "喜び";
+
+"Cheerful" = "陽気な";
+
+"Excited" = "興奮して";
+
+"Greeting" = "挨拶";
+
+"Love" = "愛";
+
+"Hugging" = "ハグ";
+
+"Sad" = "悲しい";
+
+"Crying" = "泣く";
+
+"Depressed" = "意気消沈した";
+
+"Sympathy" = "同情";
+
+"Apologizing" = "謝罪";
+
+"Surprised" = "びっくり";
+
+"Confused" = "混乱している";
+
+"Embarrassment" = "恥ずかしい";
+
+"Doubt" = "疑問に思う";
+
+"Indifference" = "無関心";
+
+"Angry" = "怒っている";
+
+"Mad" = "気違い";
+
+"Table Flipping" = "掀テーブル";
+
+"Dissatisfaction" = "不満";
+
+"Sleeping" = "寝ている";
+
+"Hiding" = "隠蔽";
+
+"Winking" = "ウインク";
+
+"Characters" = "キャラクター";
+
+"Writing" = "書き込み";
+
+"Running" = "ランニング";
+
+"Blushing" = "ほお紅";
+
+"Music" = "音楽";
+
+"Eating" = "食べる";
+
+"Festival" = "祭り";
+
+"Birthday" = "お誕生日";
+
+"Dogs" = "犬";
+
+"Cats" = "猫";
+
+"Bears" = "くま";
+
+"Pigs" = "豚";
+
+"Rabbit" = "ウサギ";
+
+"Other Animals"  = "他の動物";

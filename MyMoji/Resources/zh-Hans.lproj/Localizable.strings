@@ -7,12 +7,104 @@
 */
 "Kaomoji" = "颜文字";
 
-"Favorite" = "收藏";
+"Favorites" = "收藏夹";
 
 "Settings" = "设置";
 
-"Feedback" = "意见反馈";
+"Feedback" = "反馈";
 
-"Share App" = "分享App给好友";
+"Suggestions & problems" = "问题和建议" ;
 
-"I have found a good Kaomoji app,try it:%@" =  "我发现一款很好的颜文字APP,快来h尝试一下吧:%@";
+"Share App" = "分享给朋友";
+
+"I have found a good Kaomoji app ,try it:%@" = "我发现一款很好用的颜文字应用，快来尝试吧 :%@";
+
+"Tap item to copy it" = "单击复制条目";
+
+"Long press to remove item from favorites" = "长按从收藏中移除条目";
+
+"Long press to add item to favorites" = "长按添加到收藏夹";
+
+"Copied to pasteboard:%@" = "复制到粘贴板:%@";
+
+"Removed from favorites:%@" = "从收藏中移除:%@";
+
+"Added to favorites:%@" = "已收藏:%@";
+
+"Help" = "帮助";
+
+"About us" = "关于我们";
+
+"Joy" = "开心";
+
+"Cheerful" = "高兴";
+
+"Excited" = "兴奋";
+
+"Greeting" = "打招呼";
+
+"Love" = "爱";
+
+"Hugging" = "拥抱";
+
+"Sad" = "伤心";
+
+"Crying" = "哭泣";
+
+"Depressed" = "郁闷";
+
+"Sympathy" = "同期";
+
+"Apologizing" = "道歉";
+
+"Surprised" = "吃惊";
+
+"Confused" = "困惑";
+
+"Embarrassment" = "尴尬";
+
+"Doubt" = "怀疑";
+
+"Indifference" = "漠不关心";
+
+"Angry" = "生气";
+
+"Mad" = "疯狂";
+
+"Table Flipping" = "掀桌子";
+
+"Dissatisfaction" = "不满";
+
+"Sleeping" = "睡觉";
+
+"Hiding" = "逃避";
+
+"Winking" = "眨眼";
+
+"Characters" = "角色";
+
+"Writing" = "写";
+
+"Running" = "跑";
+
+"Blushing" = "脸红";
+
+"Music" = "音乐";
+
+"Eating" = "吃";
+
+"Festival" = "节日";
+
+"Birthday" = "生日";
+
+"Dogs" = "狗";
+
+"Cats" = "猫";
+
+"Bears" = "熊";
+
+"Pigs" = "猪";
+
+"Rabbit" = "兔子";
+
+"Other Animals"  = "其他动物";

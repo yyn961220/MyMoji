@@ -40,14 +40,30 @@
     // Use XCTAssert and related functions to verify your tests produce the correct results.
     
     
+//    XCUIElementQuery *tabBarsQuery = [[XCUIApplication alloc] init].tabBars;
+//    [tabBarsQuery.buttons[@"Kaomoji"] tap];
+//    [Snapshot snapshot:@"Kaomoji" timeWaitingForIdle:10];
+//    [tabBarsQuery.buttons[@"Favorites"] tap];
+//    [Snapshot snapshot:@"Favorites" timeWaitingForIdle:10];
+//    [tabBarsQuery.buttons[@"Settings"] tap];
+//        [Snapshot snapshot:@"Settings" timeWaitingForIdle:10];
+    
+    
     XCUIElementQuery *tabBarsQuery = [[XCUIApplication alloc] init].tabBars;
-    [tabBarsQuery.buttons[@"Kaomoji"] tap];
+    XCUIElement *kaomojiButton = [tabBarsQuery.buttons elementBoundByIndex:0];
+    [kaomojiButton tap];
+    
     [Snapshot snapshot:@"Kaomoji" timeWaitingForIdle:10];
-    [tabBarsQuery.buttons[@"Favorites"] tap];
+    
+    XCUIElement *favoritesButton = [tabBarsQuery.buttons elementBoundByIndex:1];
+    [favoritesButton tap];
+    
     [Snapshot snapshot:@"Favorites" timeWaitingForIdle:10];
-    [tabBarsQuery.buttons[@"Settings"] tap];
+    XCUIElement *settingsButton = [tabBarsQuery.buttons elementBoundByIndex:2];;
+
     [Snapshot snapshot:@"Settings" timeWaitingForIdle:10];
    
+    
 
 }
 

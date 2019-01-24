@@ -1,0 +1,10 @@
+/* 
+  InfoPlist.strings
+  MyMoji
+
+  Created by xingfa.zhou on 2019/1/23.
+  Copyright © 2019年 BeterLife. All rights reserved.
+*/
+
+CFBundleDisplayName = "顏文字大全";
+

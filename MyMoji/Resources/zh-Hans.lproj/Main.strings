@@ -1,9 +1,9 @@
 
-/* Class = "UITabBarItem"; title = "收藏"; ObjectID = "1wQ-TQ-w8m"; */
+/* Class = "UITabBarItem"; title = "Favorites"; ObjectID = "1wQ-TQ-w8m"; */
 "1wQ-TQ-w8m.title" = "收藏";
 
-/* Class = "UITabBarItem"; title = "颜文字"; ObjectID = "aNg-Vx-sJS"; */
-"aNg-Vx-sJS.title" = "颜文字";
+/* Class = "UITabBarItem"; title = "Kaomoji"; ObjectID = "aNg-Vx-sJS"; */
+"aNg-Vx-sJS.title" = "顏文字";
 
-/* Class = "UITabBarItem"; title = "设置"; ObjectID = "ncv-v9-h3G"; */
-"ncv-v9-h3G.title" = "设置";
+/* Class = "UITabBarItem"; title = "Settings"; ObjectID = "ncv-v9-h3G"; */
+"ncv-v9-h3G.title" = "設置";

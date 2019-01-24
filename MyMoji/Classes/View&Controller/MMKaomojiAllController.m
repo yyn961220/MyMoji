@@ -386,9 +386,10 @@ UICollectionViewDataSource>{
                                                                                forIndexPath:indexPath];
     if ([kind isEqualToString:UICollectionElementKindSectionHeader])
     {
-        NSString *categate = self.categates[indexPath.section];
-        NSString *icon = NSLocalizedString([self.categateIcons objectForKey:categate],nil);
-        NSString *model = [NSString stringWithFormat:@"%@- %@",icon,categate];
+        NSString *categate =self.categates[indexPath.section];
+        NSString *localizedCategate = NSLocalizedString(self.categates[indexPath.section],nil);
+        NSString *icon = [self.categateIcons objectForKey:categate];
+        NSString *model = [NSString stringWithFormat:@"%@- %@",icon,localizedCategate];
         view.title.text = model;
     }
     return view;

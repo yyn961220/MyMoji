@@ -29,8 +29,8 @@
     
     self.navigationItem.title = NSLocalizedString(@"Settings",nil);
     NSString *tip1 = [NSString stringWithFormat:@"1.%@", NSLocalizedString(@"Tap item to copy it",nil)];
-     NSString *tip2 =[NSString stringWithFormat:@"2.%@", NSLocalizedString(@"Long press to Add item to favirates",nil)];
-    NSString *tip3 = [NSString stringWithFormat:@"3.%@", NSLocalizedString(@"Long press to remove item from favirates",nil)];
+     NSString *tip2 =[NSString stringWithFormat:@"2.%@", NSLocalizedString(@"Long press to add item to favorites",nil)];
+    NSString *tip3 = [NSString stringWithFormat:@"3.%@", NSLocalizedString(@"Long press to remove item from favorites",nil)];
     _helpTips = @[tip1,tip2,tip3];
 }
 

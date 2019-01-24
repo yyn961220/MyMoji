@@ -42,7 +42,7 @@ UICollectionViewDataSource>{
 
 - (void)showTips{
     NSString *tip1 = [NSString stringWithFormat:@"1.%@", NSLocalizedString(@"Tap item to copy it",nil)];
-    NSString *tip2 = [NSString stringWithFormat:@"2.%@", NSLocalizedString(@"Long press to remove item from favirites",nil)];
+    NSString *tip2 = [NSString stringWithFormat:@"2.%@", NSLocalizedString(@"Long press to remove item from favorites",nil)];
     
     NSString *allTips = [NSString stringWithFormat:@"%@ \n%@",tip1,tip2];
     

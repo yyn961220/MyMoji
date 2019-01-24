@@ -387,7 +387,7 @@ UICollectionViewDataSource>{
     if ([kind isEqualToString:UICollectionElementKindSectionHeader])
     {
         NSString *categate = self.categates[indexPath.section];
-        NSString *icon = [self.categateIcons objectForKey:categate];
+        NSString *icon = NSLocalizedString([self.categateIcons objectForKey:categate],nil);
         NSString *model = [NSString stringWithFormat:@"%@- %@",icon,categate];
         view.title.text = model;
     }
@@ -444,7 +444,6 @@ UICollectionViewDataSource>{
     
     [self updateTitleWithText:title dismissAfterDelay:THE_REMIND_INFOR_SHOW_TIME];
     
-//    [self performSelector:@selector(updateTitleWithText:) withObject:nil afterDelay:THE_REMIND_INFOR_SHOU_TIME];
 }
 
 - (void)addOrRemoveFromFavirateWithText:(NSString *)text{
@@ -458,20 +457,6 @@ UICollectionViewDataSource>{
     
     [self updateTitleWithText:favoriteButtonTitle dismissAfterDelay:THE_REMIND_INFOR_SHOW_TIME];
     
-    /*
-    NSString *remove = [NSString stringWithFormat:NSLocalizedString(@"Removed from favorites:%@",nil),text];
-    NSString *add = [NSString stringWithFormat:NSLocalizedString(@"Added to favorites:%@",nil),text];
-    
-    NSString *favoriteButtonTitle = contains ? remove:add;
-    
-    if (contains) {
-         [[MMFavoriteManager shareManager] removeFavoriteItem:text] ;
-    }else{
-        [[MMFavoriteManager shareManager] addFavoriteItem:text] ;
-    }
-    
-    [self updateTitleWithText:favoriteButtonTitle dismissAfterDelay:THE_REMIND_INFOR_SHOW_TIME];
-     */
 }
 
 

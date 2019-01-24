@@ -238,8 +238,6 @@ UICollectionViewDataSource>{
     NSString *title = [NSString stringWithFormat:NSLocalizedString(@"Copied to pasteboard:%@",nil),text] ;
     
     [self updateTitleWithText:title dismissAfterDelay:THE_REMIND_INFOR_SHOW_TIME];
-    
-    //[self performSelector:@selector(updateTitleWithText:) withObject:nil afterDelay:THE_REMIND_INFOR_SHOU_TIME];
 }
 
 - (void)addOrRemoveFromFavirateWithText:(NSString *)text{
@@ -252,21 +250,6 @@ UICollectionViewDataSource>{
     
      [self updateTitleWithText:remove dismissAfterDelay:THE_REMIND_INFOR_SHOW_TIME];
     
-    /*
-    NSString *remove = [NSString stringWithFormat:NSLocalizedString(@"Removed from favorites:%@",nil),text];
-    NSString *add = [NSString stringWithFormat:NSLocalizedString(@"Added to favorites:%@",nil),text];
-    
-    NSString *favoriteButtonTitle = contains ? remove:add;
-    
-    if (contains) {
-        [[MMFavoriteManager shareManager] removeFavoriteItem:text] ;
-    }else{
-        [[MMFavoriteManager shareManager] addFavoriteItem:text] ;
-    }
-    
-    [self updateTitleWithText:favoriteButtonTitle dismissAfterDelay:THE_REMIND_INFOR_SHOW_TIME];
-    */
-//    [self performSelector:@selector(updateTitleWithText:) withObject:nil afterDelay:THE_REMIND_INFOR_SHOU_TIME];
 }
 /*
 #pragma mark - Navigation

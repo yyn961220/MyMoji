@@ -18,7 +18,6 @@
 		83A5F88921DE15A500344B91 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83A5F88721DE15A500344B91 /* LaunchScreen.storyboard */; };
 		83A5F88C21DE15A500344B91 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A5F88B21DE15A500344B91 /* main.m */; };
 		83A5F89621DE15A500344B91 /* MyMojiTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A5F89521DE15A500344B91 /* MyMojiTests.m */; };
-		83A5F8A121DE15A500344B91 /* MyMojiUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A5F8A021DE15A500344B91 /* MyMojiUITests.m */; };
 		83A5F8BA21DEFD3500344B91 /* MMTextListFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A5F8B921DEFD3500344B91 /* MMTextListFlowLayout.m */; };
 		83A5F8E921DF540500344B91 /* MMTextCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A5F8E821DF540500344B91 /* MMTextCollectionCell.m */; };
 		83C5100221F8072A00769259 /* MMKaomojiTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C5100121F8072A00769259 /* MMKaomojiTabBarController.m */; };
@@ -26,6 +25,8 @@
 		83C5100D21F885CA00769259 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 83C5100F21F885CA00769259 /* InfoPlist.strings */; };
 		83C9B34A21F704B200CFC2F1 /* MMKaomojiSettingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C9B34921F704B200CFC2F1 /* MMKaomojiSettingController.m */; };
 		83C9B36621F87CDC00CFC2F1 /* launchIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 83C9B36521F87CDC00CFC2F1 /* launchIcon.png */; };
+		83FD1EF021F9AC120063A5A4 /* MyMojiUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 83FD1EEF21F9AC120063A5A4 /* MyMojiUITests.m */; };
+		83FD1EF921F9AD9B0063A5A4 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FD1EF821F9AD9B0063A5A4 /* SnapshotHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +37,7 @@
 			remoteGlobalIDString = 83A5F87821DE15A400344B91;
 			remoteInfo = MyMoji;
 		};
-		83A5F89D21DE15A500344B91 /* PBXContainerItemProxy */ = {
+		83FD1EF221F9AC120063A5A4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 83A5F87121DE15A400344B91 /* Project object */;
 			proxyType = 1;
@@ -69,9 +70,6 @@
 		83A5F89121DE15A500344B91 /* MyMojiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyMojiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		83A5F89521DE15A500344B91 /* MyMojiTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyMojiTests.m; sourceTree = "<group>"; };
 		83A5F89721DE15A500344B91 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		83A5F89C21DE15A500344B91 /* MyMojiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyMojiUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		83A5F8A021DE15A500344B91 /* MyMojiUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyMojiUITests.m; sourceTree = "<group>"; };
-		83A5F8A221DE15A500344B91 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		83A5F8B821DEFD3500344B91 /* MMTextListFlowLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMTextListFlowLayout.h; sourceTree = "<group>"; };
 		83A5F8B921DEFD3500344B91 /* MMTextListFlowLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMTextListFlowLayout.m; sourceTree = "<group>"; };
 		83A5F8E721DF540500344B91 /* MMTextCollectionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMTextCollectionCell.h; sourceTree = "<group>"; };
@@ -110,6 +108,11 @@
 		83C9B35F21F768E200CFC2F1 /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/Main.strings; sourceTree = "<group>"; };
 		83C9B36021F768E200CFC2F1 /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		83C9B36521F87CDC00CFC2F1 /* launchIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launchIcon.png; sourceTree = "<group>"; };
+		83FD1EED21F9AC120063A5A4 /* MyMojiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyMojiUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		83FD1EEF21F9AC120063A5A4 /* MyMojiUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyMojiUITests.m; sourceTree = "<group>"; };
+		83FD1EF121F9AC120063A5A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		83FD1EF721F9AD9B0063A5A4 /* MyMojiUITests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MyMojiUITests-Bridging-Header.h"; sourceTree = "<group>"; };
+		83FD1EF821F9AD9B0063A5A4 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = fastlane/SnapshotHelper.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,7 +130,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		83A5F89921DE15A500344B91 /* Frameworks */ = {
+		83FD1EEA21F9AC120063A5A4 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -142,7 +145,7 @@
 			children = (
 				83A5F87B21DE15A400344B91 /* MyMoji */,
 				83A5F89421DE15A500344B91 /* MyMojiTests */,
-				83A5F89F21DE15A500344B91 /* MyMojiUITests */,
+				83FD1EEE21F9AC120063A5A4 /* MyMojiUITests */,
 				83A5F87A21DE15A400344B91 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -152,7 +155,7 @@
 			children = (
 				83A5F87921DE15A400344B91 /* MyMoji.app */,
 				83A5F89121DE15A500344B91 /* MyMojiTests.xctest */,
-				83A5F89C21DE15A500344B91 /* MyMojiUITests.xctest */,
+				83FD1EED21F9AC120063A5A4 /* MyMojiUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -174,15 +177,6 @@
 				83A5F89721DE15A500344B91 /* Info.plist */,
 			);
 			path = MyMojiTests;
-			sourceTree = "<group>";
-		};
-		83A5F89F21DE15A500344B91 /* MyMojiUITests */ = {
-			isa = PBXGroup;
-			children = (
-				83A5F8A021DE15A500344B91 /* MyMojiUITests.m */,
-				83A5F8A221DE15A500344B91 /* Info.plist */,
-			);
-			path = MyMojiUITests;
 			sourceTree = "<group>";
 		};
 		83A5F8AE21DE356F00344B91 /* Classes */ = {
@@ -253,6 +247,17 @@
 			path = "View&Controller";
 			sourceTree = "<group>";
 		};
+		83FD1EEE21F9AC120063A5A4 /* MyMojiUITests */ = {
+			isa = PBXGroup;
+			children = (
+				83FD1EF821F9AD9B0063A5A4 /* SnapshotHelper.swift */,
+				83FD1EEF21F9AC120063A5A4 /* MyMojiUITests.m */,
+				83FD1EF121F9AC120063A5A4 /* Info.plist */,
+				83FD1EF721F9AD9B0063A5A4 /* MyMojiUITests-Bridging-Header.h */,
+			);
+			path = MyMojiUITests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -291,22 +296,22 @@
 			productReference = 83A5F89121DE15A500344B91 /* MyMojiTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		83A5F89B21DE15A500344B91 /* MyMojiUITests */ = {
+		83FD1EEC21F9AC120063A5A4 /* MyMojiUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 83A5F8AB21DE15A500344B91 /* Build configuration list for PBXNativeTarget "MyMojiUITests" */;
+			buildConfigurationList = 83FD1EF421F9AC120063A5A4 /* Build configuration list for PBXNativeTarget "MyMojiUITests" */;
 			buildPhases = (
-				83A5F89821DE15A500344B91 /* Sources */,
-				83A5F89921DE15A500344B91 /* Frameworks */,
-				83A5F89A21DE15A500344B91 /* Resources */,
+				83FD1EE921F9AC120063A5A4 /* Sources */,
+				83FD1EEA21F9AC120063A5A4 /* Frameworks */,
+				83FD1EEB21F9AC120063A5A4 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				83A5F89E21DE15A500344B91 /* PBXTargetDependency */,
+				83FD1EF321F9AC120063A5A4 /* PBXTargetDependency */,
 			);
 			name = MyMojiUITests;
 			productName = MyMojiUITests;
-			productReference = 83A5F89C21DE15A500344B91 /* MyMojiUITests.xctest */;
+			productReference = 83FD1EED21F9AC120063A5A4 /* MyMojiUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -325,8 +330,9 @@
 						CreatedOnToolsVersion = 10.1;
 						TestTargetID = 83A5F87821DE15A400344B91;
 					};
-					83A5F89B21DE15A500344B91 = {
+					83FD1EEC21F9AC120063A5A4 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1010;
 						TestTargetID = 83A5F87821DE15A400344B91;
 					};
 				};
@@ -349,7 +355,7 @@
 			targets = (
 				83A5F87821DE15A400344B91 /* MyMoji */,
 				83A5F89021DE15A500344B91 /* MyMojiTests */,
-				83A5F89B21DE15A500344B91 /* MyMojiUITests */,
+				83FD1EEC21F9AC120063A5A4 /* MyMojiUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -375,7 +381,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		83A5F89A21DE15A500344B91 /* Resources */ = {
+		83FD1EEB21F9AC120063A5A4 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -411,11 +417,12 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		83A5F89821DE15A500344B91 /* Sources */ = {
+		83FD1EE921F9AC120063A5A4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				83A5F8A121DE15A500344B91 /* MyMojiUITests.m in Sources */,
+				83FD1EF021F9AC120063A5A4 /* MyMojiUITests.m in Sources */,
+				83FD1EF921F9AD9B0063A5A4 /* SnapshotHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -427,10 +434,10 @@
 			target = 83A5F87821DE15A400344B91 /* MyMoji */;
 			targetProxy = 83A5F89221DE15A500344B91 /* PBXContainerItemProxy */;
 		};
-		83A5F89E21DE15A500344B91 /* PBXTargetDependency */ = {
+		83FD1EF321F9AC120063A5A4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 83A5F87821DE15A400344B91 /* MyMoji */;
-			targetProxy = 83A5F89D21DE15A500344B91 /* PBXContainerItemProxy */;
+			targetProxy = 83FD1EF221F9AC120063A5A4 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -702,11 +709,13 @@
 			};
 			name = Release;
 		};
-		83A5F8AC21DE15A500344B91 /* Debug */ = {
+		83FD1EF521F9AC120063A5A4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 7V5X2W9W5Y;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = PFM2YVG6D2;
 				INFOPLIST_FILE = MyMojiUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -715,16 +724,21 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.bettelife.MyMojiUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MyMojiUITests/MyMojiUITests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = MyMoji;
 			};
 			name = Debug;
 		};
-		83A5F8AD21DE15A500344B91 /* Release */ = {
+		83FD1EF621F9AC120063A5A4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 7V5X2W9W5Y;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = PFM2YVG6D2;
 				INFOPLIST_FILE = MyMojiUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -733,6 +747,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.bettelife.MyMojiUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MyMojiUITests/MyMojiUITests-Bridging-Header.h";
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = MyMoji;
 			};
@@ -768,11 +784,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		83A5F8AB21DE15A500344B91 /* Build configuration list for PBXNativeTarget "MyMojiUITests" */ = {
+		83FD1EF421F9AC120063A5A4 /* Build configuration list for PBXNativeTarget "MyMojiUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				83A5F8AC21DE15A500344B91 /* Debug */,
-				83A5F8AD21DE15A500344B91 /* Release */,
+				83FD1EF521F9AC120063A5A4 /* Debug */,
+				83FD1EF621F9AC120063A5A4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

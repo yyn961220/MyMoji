@@ -84,7 +84,7 @@
 - (void)shareWithFriend{
     
     NSString *downLoadURL = @"https://itunes.apple.com/app/id1450275979?mt=8";
-    NSString *share = [NSString stringWithFormat:@"%@ %@",NSLocalizedString(@"I have found a good Kaomoji app,try it:%@", nil),downLoadURL];
+    NSString *share = [NSString stringWithFormat:NSLocalizedString(@"I have found a good Kaomoji app,try it:%@", nil),downLoadURL];
     
     UIActivityViewController *vc = [[UIActivityViewController alloc] initWithActivityItems:@[share,[NSURL URLWithString:downLoadURL]] applicationActivities:nil];
     UIPopoverPresentationController *pop = vc.popoverPresentationController ;

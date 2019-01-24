@@ -23,6 +23,7 @@
 		83A5F8E921DF540500344B91 /* MMTextCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A5F8E821DF540500344B91 /* MMTextCollectionCell.m */; };
 		83C5100221F8072A00769259 /* MMKaomojiTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C5100121F8072A00769259 /* MMKaomojiTabBarController.m */; };
 		83C5100521F80CBD00769259 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 83C5100721F80CBD00769259 /* Localizable.strings */; };
+		83C5100D21F885CA00769259 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 83C5100F21F885CA00769259 /* InfoPlist.strings */; };
 		83C9B34A21F704B200CFC2F1 /* MMKaomojiSettingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C9B34921F704B200CFC2F1 /* MMKaomojiSettingController.m */; };
 		83C9B36621F87CDC00CFC2F1 /* launchIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 83C9B36521F87CDC00CFC2F1 /* launchIcon.png */; };
 /* End PBXBuildFile section */
@@ -81,6 +82,10 @@
 		83C5100821F80CBF00769259 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		83C5100921F80CC100769259 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		83C5100A21F80CC300769259 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
+		83C5100E21F885CA00769259 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		83C5101021F885CD00769259 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		83C5101121F885CF00769259 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		83C5101221F885D000769259 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		83C9B34821F704B200CFC2F1 /* MMKaomojiSettingController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMKaomojiSettingController.h; sourceTree = "<group>"; };
 		83C9B34921F704B200CFC2F1 /* MMKaomojiSettingController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMKaomojiSettingController.m; sourceTree = "<group>"; };
 		83C9B34B21F7680C00CFC2F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = Base; path = Base.lproj/test.json; sourceTree = "<group>"; };
@@ -201,6 +206,7 @@
 				83C9B36521F87CDC00CFC2F1 /* launchIcon.png */,
 				83C9B34C21F7680C00CFC2F1 /* test.json */,
 				83C5100721F80CBD00769259 /* Localizable.strings */,
+				83C5100F21F885CA00769259 /* InfoPlist.strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -354,6 +360,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				83C5100521F80CBD00769259 /* Localizable.strings in Resources */,
+				83C5100D21F885CA00769259 /* InfoPlist.strings in Resources */,
 				83C9B36621F87CDC00CFC2F1 /* launchIcon.png in Resources */,
 				83A5F88921DE15A500344B91 /* LaunchScreen.storyboard in Resources */,
 				83A5F88621DE15A500344B91 /* Assets.xcassets in Resources */,
@@ -473,6 +480,17 @@
 				83C5100A21F80CC300769259 /* ko */,
 			);
 			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		83C5100F21F885CA00769259 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				83C5100E21F885CA00769259 /* en */,
+				83C5101021F885CD00769259 /* zh-Hans */,
+				83C5101121F885CF00769259 /* ja */,
+				83C5101221F885D000769259 /* ko */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 		83C9B34C21F7680C00CFC2F1 /* test.json */ = {

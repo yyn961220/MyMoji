@@ -7,7 +7,13 @@
 */
 
 "Kaomoji" = "Kaomoji";
+
 "Favorite" = "Favorite";
+
 "Settings" = "Settings";
+
 "Feedback" = "Feedback";
+
 "Share App" = "Share With Friends";
+
+"I have found a good Kaomoji app,try it:%@" = "I have found a good Kaomoji app,try it:%@";

@@ -1,0 +1,111 @@
+/* 
+  Localizable.strings
+  MyMoji
+
+  Created by xingfa.zhou on 2019/1/23.
+  Copyright © 2019年 BeterLife. All rights reserved.
+*/
+
+"Kaomoji" = "顏文字";
+
+"Favorites" = "收藏夾";
+
+"Settings" = "設置";
+
+"Feedback" = "反饋";
+
+"Suggestions & problems" = "問題和建議" ;
+
+"Share App" = "分享給朋友";
+
+"I have found a good Kaomoji app ,try it:%@" = "我發現一款很好用的顏色文字應用，快來嘗試吧： :%@";
+
+"Tap item to copy it" = "單擊複製條目";
+
+"Long press to remove item from favorites" = "長按從收藏中移除條目";
+
+"Long press to add item to favorites" = "長按添加到收藏夾";
+
+"Copied to pasteboard:%@" = "複製到粘貼板：%@";
+
+"Removed from favorites:%@" = "從收藏中移除：%@";
+
+"Added to favorites:%@" = "已收藏：%@";
+
+"Help" = "幫助";
+
+"About us" = "關於我們";
+
+"Joy" = "開心";
+
+"Cheerful" = "高興";
+
+"Excited" = "興奮";
+
+"Greeting" = "問候";
+
+"Love" = "愛";
+
+"Hugging" = "擁抱";
+
+"Sad" = "傷心";
+
+"Crying" = "哭泣";
+
+"Depressed" = "鬱悶";
+
+"Sympathy" = "同情";
+
+"Apologizing" = "道歉";
+
+"Surprised" = "驚訝";
+
+"Confused" = "困惑";
+
+"Embarrassment" = "尴尬";
+
+"Doubt" = "懷疑";
+
+"Indifference" = "漠不關心";
+
+"Angry" = "生氣";
+
+"Mad" = "瘋狂";
+
+"Table Flipping" = "掀桌子";
+
+"Dissatisfaction" = "不滿";
+
+"Sleeping" = "睡覺";
+
+"Hiding" = "逃避";
+
+"Winking" = "眨眼";
+
+"Characters" = "角色";
+
+"Writing" = "寫作";
+
+"Running" = "跑";
+
+"Blushing" = "臉紅";
+
+"Music" = "音樂";
+
+"Eating" = "吃";
+
+"Festival" = "節日";
+
+"Birthday" = "生日";
+
+"Dogs" = "狗";
+
+"Cats" = "貓";
+
+"Bears" = "熊";
+
+"Pigs" = "豬";
+
+"Rabbit" = "兔子";
+
+"Other Animals"  = "其他動物";

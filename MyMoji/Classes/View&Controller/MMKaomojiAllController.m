@@ -57,6 +57,16 @@ UICollectionViewDataSource>{
      [self initTableAndCollecionView];
 
      [self showTips];
+    
+    /*
+     // 截图所用代码
+    [self setDefaultTitle];
+    
+    NSArray *array = [self.allList valueForKey:@"Cheerful"];
+    for (NSString *string in array) {
+        [[MMFavoriteManager shareManager] addFavoriteItem:string] ;
+    }
+     */
 }
 
 - (void)showTips{

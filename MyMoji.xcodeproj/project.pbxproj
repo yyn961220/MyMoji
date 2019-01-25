@@ -111,6 +111,8 @@
 		83FD1F0821F9FE630063A5A4 /* zh-HK */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-HK"; path = "zh-HK.lproj/Main.strings"; sourceTree = "<group>"; };
 		83FD1F0921F9FF9F0063A5A4 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		83FD1F0A21F9FFA00063A5A4 /* zh-HK */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-HK"; path = "zh-HK.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		83FD1F0B21FAEA010063A5A4 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		83FD1F0C21FAEA020063A5A4 /* zh-HK */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-HK"; path = "zh-HK.lproj/Localizable.strings"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -481,6 +483,8 @@
 				83C5100821F80CBF00769259 /* zh-Hans */,
 				83C5100921F80CC100769259 /* ja */,
 				83C5100A21F80CC300769259 /* ko */,
+				83FD1F0B21FAEA010063A5A4 /* zh-Hant */,
+				83FD1F0C21FAEA020063A5A4 /* zh-HK */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
